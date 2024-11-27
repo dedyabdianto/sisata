@@ -87,15 +87,15 @@
                            <li class="menu-item-has-children">
                               <a href="index.html">Beranda</a>
                               <ul>
-                                 <li><a href="about.html">Profil Instansi</a></li>
-                                 <li><a href="about.html">Profil Pimpinan</a></li>
-                                 <li><a href="about.html">Visi Misi</a></li>
-                                 <li><a href="index-v2.html">Standar Pelayanan</a></li>
-                                 <li><a href="index-v2.html">Sambutan Kepala Rektor</a></li>
-                                 <li><a href="index-v2.html">3 atau 4 Berita Terbaru</a></li>
-                                 <li><a href="wishlist-page.html">Informasi Terbaru</a></li>
-                                 <li><a href="wishlist-page.html">Pengumuman</a></li>
-                                 <li><a href="admin/dashboard.html">Poling dan Statistik Pengunjung</a></li>
+                                 <li><a href="profilinstansi">Profil Instansi</a></li>
+                                 <li><a href="profilpimpinan">Profil Pimpinan</a></li>
+                                 <li><a href="visimisi">Visi Misi</a></li>
+                                 <li><a href="standarpelayanan">Standar Pelayanan</a></li>
+                                 <li><a href="sambutanrektor">Sambutan Kepala Rektor</a></li>
+                                 <li><a href="empatberita">3 atau 4 Berita Terbaru</a></li>
+                                 <li><a href="informasiterbaru">Informasi Terbaru</a></li>
+                                 <li><a href="pengumuman">Pengumuman</a></li>
+                                 <li><a href="polingstatistik">Poling dan Statistik Pengunjung</a></li>
                            
                               </ul>
                            </li>
@@ -118,8 +118,8 @@
                            <li class="menu-item-has-children">
                               <a href="#">Media</a>
                               <ul>
-                                 <li><a href="gallery.html">Foto</a></li>
-                                 <li><a href="gallery.html">Video</a></li>
+                                 <li><a href="foto">Foto</a></li>
+                                 <li><a href="video">Video</a></li>
                                  <li><a href="product-detail.html">Download Data</a></li>
                               </ul>
                            </li>
