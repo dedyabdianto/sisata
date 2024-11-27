@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\KategoriInformasiController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 
@@ -22,3 +23,8 @@ Route::get('/booking', [AdminController::class, 'booking'])->name('booking');
 Route::get('/wishlist', [AdminController::class, 'wishlist'])->name('wishlist');
 Route::get('/comment', [AdminController::class, 'comment'])->name('comment');
 Route::get('/logout', [AdminController::class, 'logout'])->name('logout');
+
+Route::get('/kategori-informasi', [KategoriInformasiController::class, 'index'])->name('kategori-informasi');
+Route::post('/kategori-informasi/store', [KategoriInformasiController::class, 'store'])->name('kategori-informasi.store');
+Route::put('/kategori-informasi/update/{id}', [KategoriInformasiController::class, 'update'])->name('kategori-informasi.update');
+Route::delete('/kategori-informasi/destroy/{id}', [KategoriInformasiController::class, 'destroy'])->name('kategori-informasi.destroy');
