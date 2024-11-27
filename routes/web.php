@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\InformasiController;
 use App\Http\Controllers\KategoriInformasiController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
@@ -28,3 +29,8 @@ Route::get('/kategori-informasi', [KategoriInformasiController::class, 'index'])
 Route::post('/kategori-informasi/store', [KategoriInformasiController::class, 'store'])->name('kategori-informasi.store');
 Route::put('/kategori-informasi/update/{id}', [KategoriInformasiController::class, 'update'])->name('kategori-informasi.update');
 Route::delete('/kategori-informasi/destroy/{id}', [KategoriInformasiController::class, 'destroy'])->name('kategori-informasi.destroy');
+
+Route::get('/informasi', [InformasiController::class, 'index'])->name('informasi');
+Route::post('/informasi/store', [InformasiController::class, 'store'])->name('informasi.store');
+Route::put('/informasi/update/{id}', [InformasiController::class, 'update'])->name('informasi.update');
+Route::delete('/informasi/destroy/{id}', [InformasiController::class, 'destroy'])->name('informasi.destroy');

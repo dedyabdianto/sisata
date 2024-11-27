@@ -300,17 +300,17 @@
                 </a>
                 <ul id="components-nav" class="nav-content collapse show" data-bs-parent="#sidebar-nav">
                     <li>
-                        <a href="kategori-informasi" @if (Route::currentRouteNamed('kategori-informasi')) class="active" @endif>
+                        <a href="/kategori-informasi" @if (Route::currentRouteNamed('kategori-informasi')) class="active" @endif>
                             <i class="bi bi-circle"></i><span>Kategori Informasi</span>
                         </a>
                     </li>
                 </ul>
             </li><!-- End Components Nav -->
 
-            <li class="nav-item">
-                <a wire:navigate class="nav-link collapsed" href="/dashboard/produk-list">
+            <li class="nav-item" class="active">
+                <a class="nav-link collapsed" href="/informasi">
                     <i class="bi bi-boxes"></i>
-                    <span>Produk</span>
+                    <span>Kelola Informasi</span>
                 </a>
             </li>
             <li class="nav-item">
@@ -340,7 +340,7 @@
                     @else
                         <li class="breadcrumb-item"><a wire:navigate href="/dashboard">Dashboard</a></li>
                         <li class="breadcrumb-item">Pages</li>
-                        <li class="breadcrumb-item active">{{ $title }}</li>
+                        <li class="breadcrumb-item active">{{ $title ?? 'Dashboard' }}</li>
                     @endif
                 </ol>
             </nav>
@@ -382,7 +382,7 @@
     {{-- <script src="/pariwisata/admin/assets2/vendor/simple-datatables/simple-datatables.js"></script> --}}
     {{-- <script src="https://cdn.datatables.net/2.1.8/js/dataTables.min.js"></script> --}}
     <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
-    <script src="https://cdn.datatables.net/2.1.8/js/dataTables.js"> </script>
+    <script src="https://cdn.datatables.net/2.1.8/js/dataTables.js"></script>
     <script src="/pariwisata/admin/assets2/vendor/tinymce/tinymce.min.js"></script>
     <script src="/pariwisata/admin/assets2/vendor/php-email-form/validate.js"></script>
 
@@ -400,7 +400,32 @@
                 });
             });
         </script>
+    @elseif(session('error'))
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                Swal.fire({
+                    title: 'Error!',
+                    text: '{{ session('error') }}',
+                    icon: 'error',
+                    confirmButtonText: 'OK'
+                });
+            });
+        </script>
     @endif
+
+    @if ($errors->any())
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                Swal.fire({
+                    title: 'Error!',
+                    html: '{!! implode('<br>', $errors->all()) !!}',
+                    icon: 'error',
+                    confirmButtonText: 'OK'
+                });
+            });
+        </script>
+    @endif
+
 
     @stack('js')
 

@@ -7,7 +7,7 @@
                     <h5 class="card-title"></h5>
                     <div class="dashboard-box table-opp-color-box">
                         {{-- <h4>{{ $title }}</h4> --}}
-
+                       
                         <div class="publish-action">
                             <button type="button" class="btn btn-success mb-3" data-bs-toggle="modal"
                                 data-bs-target="#modalTambahKategori">
@@ -49,7 +49,7 @@
         </div>
     </div>
 
-
+   
 
     {{-- MODAL CREATE --}}
     <div class="modal fade" id="modalTambahKategori" tabindex="-1" aria-labelledby="modalTambahKategori"
@@ -97,7 +97,7 @@
                             <div class="col-12">
                                 <label for="nama_kategori" class="form-label">Nama Kategori</label>
                                 <input type="text" class="form-control" id="nama_kategori" name="nama_kategori"
-                                    value="{{ $item->nama_kategori }}" required>
+                                    value="{{ $item->nama_kategori }}">
                             </div>
                             <div class="text-center">
                                 <button type="submit" class="btn btn-success">Update Data</button>
@@ -111,6 +111,7 @@
         </div>
     @endforeach
 
+        {{-- MODAL HAPUS --}}
     @foreach ($data as $item)
     <div class="modal fade" id="modalHapusKategori-{{ $item->id }}" data-bs-backdrop="static" tabindex="-1"
         aria-labelledby="modalHapusKategori" aria-hidden="true">

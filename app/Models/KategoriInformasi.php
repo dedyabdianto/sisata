@@ -11,4 +11,8 @@ class KategoriInformasi extends Model
     use HasFactory, HasUlids;
     protected $guarded = [];
 
+    public function informasi(){
+        return $this->hasMany(Informasi::class);
+    }
+
 }

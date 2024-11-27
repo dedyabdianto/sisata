@@ -11,6 +11,9 @@ class Informasi extends Model
 {
     use HasFactory, HasUlids;
 
-    protected $table = 'informasi';
+    protected $table = 'informasis';
     protected $guarded = [];
+
+    public function kategori_informasi(){
+        return $this->belongsTo(KategoriInformasi::class);}
 }
