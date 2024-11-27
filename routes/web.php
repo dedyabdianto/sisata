@@ -3,6 +3,9 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\ProfilController;
+use App\Http\Controllers\KategoriWisataController;
+use App\Http\Controllers\KategoriInformasiController;
 
 
 Route::get('/', function () {
@@ -36,3 +39,18 @@ Route::get('/pengumuman', [HomeController::class, 'pengumuman'])->name('pengumum
 Route::get('/polingstatistik', [HomeController::class, 'polingstatistik'])->name('polingstatistik');
 Route::get('/foto', [HomeController::class, 'foto'])->name('foto');
 Route::get('/video', [HomeController::class, 'video'])->name('video');
+
+Route::get('/kategori-informasi', [KategoriInformasiController::class, 'index'])->name('kategori-informasi');
+Route::post('/kategori-informasi/store', [KategoriInformasiController::class, 'store'])->name('kategori-informasi.store');
+Route::put('/kategori-informasi/update/{id}', [KategoriInformasiController::class, 'update'])->name('kategori-informasi.update');
+Route::delete('/kategori-informasi/destroy/{id}', [KategoriInformasiController::class, 'destroy'])->name('kategori-informasi.destroy');
+
+Route::get('/kategori-wisata', [KategoriWisataController::class, 'index'])->name('kategori-wisata');
+Route::post('/kategori-wisata/store', [KategoriWisataController::class, 'store'])->name('kategori-wisata.store');
+Route::put('/kategori-wisata/update/{id}', [KategoriWisataController::class, 'update'])->name('kategori-wisata.update');
+Route::delete('/kategori-wisata/destroy/{id}', [KategoriWisataController::class, 'destroy'])->name('kategori-wisata.destroy');
+
+Route::get('/profil', [ProfilController::class, 'index'])->name('profil');
+Route::post('/profil/store', [ProfilController::class, 'store'])->name('profil.store');
+Route::put('/profil/update/{id}', [ProfilController::class, 'update'])->name('profil.update');
+Route::delete('/profil/destroy/{id}', [ProfilController::class, 'destroy'])->name('profil.destroy');
