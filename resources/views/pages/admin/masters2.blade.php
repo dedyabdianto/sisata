@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>{{ $title ?? 'UMKM Sederhana Yanggandur' }}</title>
+    <title>{{ $title ?? 'PARIWISATA PAPUA SELATAN' }}</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
 
@@ -28,6 +28,7 @@
     <link href="/pariwisata/admin/assets2/vendor/remixicon/remixicon.css" rel="stylesheet">
     {{-- <link href="/pariwisata/admin/assets2/vendor/simple-datatables/style.css" rel="stylesheet"> --}}
     <link href="https://cdn.datatables.net/2.1.8/css/dataTables.dataTables.min.css" rel="stylesheet">
+    
 
     <!-- Template Main CSS File -->
     <link href="/pariwisata/admin/assets2/css/style.css" rel="stylesheet">
@@ -49,9 +50,9 @@
     <header id="header" class="header fixed-top d-flex align-items-center">
 
         <div class="d-flex align-items-center justify-content-between">
-            <a href="index.html" class="logo d-flex align-items-center">
-                <img src="/pariwisata/admin/assets2/img/logo-umkm.png" alt="">
-                <span class="d-none d-lg-block">UMKM Sederhana</span>
+            <a href="/" class="logo d-flex align-items-center">
+                <img style="width: 40px; height: 80px; " src="{{ asset ('pariwisata/assets/images/logo-papsel2.png') }}" alt="">
+                <span class="d-none d-lg-block">Pariwisata Provinsi Papua Selatan</span>
             </a>
             <i class="bi bi-list toggle-sidebar-btn"></i>
         </div><!-- End Logo -->
@@ -304,23 +305,39 @@
                             <i class="bi bi-circle"></i><span>Kategori Informasi</span>
                         </a>
                     </li>
+                    <li>
+                        <a href="/kategori-wisata" @if (Route::currentRouteNamed('kategori-wisata')) class="active" @endif>
+                            <i class="bi bi-circle"></i><span>Kategori Wisata</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/user" @if (Route::currentRouteNamed('user')) class="active" @endif>
+                            <i class="bi bi-circle"></i><span>Kelola User</span>
+                        </a>
+                    </li>
                 </ul>
             </li><!-- End Components Nav -->
 
             <li class="nav-item" class="active">
-                <a class="nav-link collapsed" href="/informasi">
+                <a class="nav-link {{ Request::is('informasi') ? 'active' : '' }}" href="{{url('/informasi')}}">
                     <i class="bi bi-boxes"></i>
                     <span>Kelola Informasi</span>
                 </a>
             </li>
             <li class="nav-item">
-                <a wire:navigate class="nav-link collapsed" href="/dashboard/barang-laku">
-                    <i class="bi bi-receipt-cutoff"></i>
-                    <span>Barang Laku</span>
+                <a class="nav-link {{ Request::is('profil*') ? 'active' : '' }}" href="profil">
+                    <i class="bi bi-boxes"></i>
+                    <span>Profil</span>
                 </a>
             </li>
             <li class="nav-item">
-                <a wire:navigate class="nav-link collapsed" href="/dashboard/settings">
+                <a class="nav-link {{ Request::is('wisata*') ? 'active' : '' }}" href="/wisata">
+                    <i class="bi bi-receipt-cutoff"></i>
+                    <span>Kelola Wisata</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a wire:navigate class="nav-link {{ Request::is('wisata*') ? 'active' : '' }}" href="/settings">
                     <i class="bi bi-gear"></i>
                     <span>Settings</span>
                 </a>
@@ -359,7 +376,7 @@
     <!-- ======= Footer ======= -->
     <footer id="footer" class="footer">
         <div class="copyright">
-            &copy; Copyright <strong><span>SagoDev Kota Rusa</span></strong>. All Rights Reserved
+            &copy; Copyright <strong><span>Dinas Pariwisata Provinsi Papua Selatan</span></strong>. All Rights Reserved
         </div>
         <div class="credits">
             <!-- All the links in the footer should remain intact. -->
@@ -396,7 +413,8 @@
                     title: 'Berhasil!',
                     text: '{{ session('success') }}',
                     icon: 'success',
-                    confirmButtonText: 'Oke'
+                    confirmButtonText: 'Oke',
+                    confirmButtonColor: "#008000"
                 });
             });
         </script>
@@ -407,7 +425,8 @@
                     title: 'Error!',
                     text: '{{ session('error') }}',
                     icon: 'error',
-                    confirmButtonText: 'OK'
+                    confirmButtonText: 'OK',
+                    confirmButtonColor: "#008000"
                 });
             });
         </script>
@@ -420,7 +439,8 @@
                     title: 'Error!',
                     html: '{!! implode('<br>', $errors->all()) !!}',
                     icon: 'error',
-                    confirmButtonText: 'OK'
+                    confirmButtonText: 'OK',
+                    confirmButtonColor: "#008000"
                 });
             });
         </script>

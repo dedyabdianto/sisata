@@ -17,10 +17,11 @@ return new class extends Migration
             $table->foreignUlid('kategori_wisata_id')->constrained('kategori_wisatas')->onDelete('cascade');
             $table->string('nama_wisata');
             $table->string('alamat');
-            $table->string('deskripsi');
+            $table->text('deskripsi');
             $table->string('foto');
             $table->string('harga');
-            $table->string('jam_operasional');
+            $table->string('jam_mulai');
+            $table->string('jam_selesai');
             $table->string('link_maps');
             $table->string('status')->default('aktif');
             $table->string('rating')->default('0');
@@ -28,7 +29,7 @@ return new class extends Migration
             $table->string('jumlah_review')->default('0');
             $table->string('jumlah_like')->default('0');
             $table->string('jumlah_unlike')->default('0');
-            $table->string('komentar')->nullable();
+            $table->text('komentar')->nullable();
             $table->string('slug');
             $table->timestamps();
         });

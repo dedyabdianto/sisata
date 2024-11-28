@@ -24,7 +24,7 @@
         <div id="dashboard" class="dashboard-container">
             <div class="dashboard-header sticky-header">
                 <div class="content-left  logo-section pull-left">
-                    <h1><a href="../index.html"><img style="height: 60px;width: 60px;" src="{{ asset ('pariwisata/admin/assets/images/logo-papsel2.png') }}" alt=""></a></h1>
+                    <h1><a href="/"><img style="height: 60px;width: 60px;" src="{{ asset ('pariwisata/admin/assets/images/logo-papsel2.png') }}" alt=""></a></h1>
                 </div>
                 <div class="heaer-content-right pull-right">
                     <div class="search-field">

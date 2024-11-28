@@ -12,4 +12,7 @@ class KategoriWisata extends Model
 
     protected $guarded = [];
 
+    public function wisata(){
+        return $this->hasMany(Wisata::class);}
+
 }

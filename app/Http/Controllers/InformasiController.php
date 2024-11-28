@@ -12,7 +12,7 @@ class InformasiController extends Controller
     //
     public function index(){
 
-        $informasi = Informasi::with('kategori_informasi')->get();
+        $informasi = Informasi::with('kategori_informasi', 'user')->get();
         $kategori_informasi = KategoriInformasi::all();
 
         return view('pages.admin.informasi.index', with([
@@ -79,7 +79,7 @@ class InformasiController extends Controller
         $informasi->user_id = 1;                            /// GANTI DENGAN USER AUTH
         $informasi->kategori_informasi_id = $request->kategori_informasi_id;
         $informasi->slug = Str::slug($request->judul);
-        $informasi->jml_dibaca = 0;
+        
 
         if($request->hasFile('gambar')) {
             $filename = Str::random(32) . '.' . $request->file('gambar')->getClientOriginalExtension();

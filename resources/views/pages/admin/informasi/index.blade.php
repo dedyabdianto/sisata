@@ -11,7 +11,7 @@
                         <div class="publish-action">
                             <button type="button" class="btn btn-success mb-3" data-bs-toggle="modal"
                                 data-bs-target="#modalTambahInformasi">
-                                Tambah Kategori
+                                Tambah Informasi
                             </button>
                         </div>
 
@@ -23,18 +23,19 @@
                                         <th>Judul</th>
                                         <th>Kategori Informasi</th>
                                         <th>Jumlah Dibaca</th>
-                                        <th>Aksi</th>
+                                        <th width="15%">Aksi</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     @foreach ($data as $item)
                                         <tr>
                                             <td>{{ $loop->iteration }}</td>
-                                            <td><span class="list-name"> {{ $item->judul }} </span></td>
+                                            <td><span class="list-name"> <a href="#" data-bs-toggle="modal" data-bs-target="#detailInformasi-{{ $item->id }}"> {{ $item->judul }}</a> </span></td>
                                             <td><span class="list-name"> {{ $item->kategori_informasi->nama_kategori }}
                                                 </span></td>
                                             <td><span class="list-name"> {{ $item->jml_dibaca }} </span></td>
-                                            <td> <button type="button" class="btn btn-info"><i
+                                            <td> <button type="button" class="btn btn-info" data-bs-toggle="modal"
+                                                data-bs-target="#detailInformasi-{{ $item->id }}"><i
                                                         class="bi bi-eye"></i></button>
                                                 <button type="button" class="btn btn-warning" data-bs-toggle="modal"
                                                     data-bs-target="#modalEditInformasi-{{ $item->id }}"><i
@@ -59,7 +60,7 @@
     {{-- MODAL CREATE --}}
     <div class="modal fade" id="modalTambahInformasi" tabindex="-1" aria-labelledby="modalTambahInformasi"
         aria-hidden="true">
-        <div class="modal-dialog">
+        <div class="modal-dialog modal-xl">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title">Tambah Kategori</h5>
@@ -136,11 +137,12 @@
                             </div>
                             <div class="col-12">
                                 <label for="isi" class="form-label">Isi</label>
-                                <textarea class="form-control" id="isi" name="isi" style="height: 100px;">{{ $item->isi }}</textarea>
+                                <textarea class="form-control" id="isi" name="isi" style="height: 200px;">{{ $item->isi }}</textarea>
                             </div>
                             <div class="col-12">
                                 <label for="gambar" class="form-label">Gambar</label><br>
-                                <img src="{{ url(Storage::url($item->gambar)) }}" alt="" style="width:300px; height: 300px;"><br><br>
+                                <img src="{{ url(Storage::url($item->gambar)) }}" alt=""
+                                    style="width:300px; height: 300px;"><br><br>
                                 <input type="file" class="form-control" id="gambar" name="gambar">
                             </div>
                             <div class="text-center">
@@ -180,6 +182,34 @@
                 </div>
             </div>
         </div>
+    @endforeach
+
+
+    {{-- MODAL DETAIL --}}
+    @foreach ($data as $item)
+    <div class="modal fade" id="detailInformasi-{{ $item->id }}" tabindex="-1">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Detail</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <b><center>{{$item->judul}}</center></b><br>
+                    Kategori Informasi: {{$item->kategori_informasi->nama_kategori}}<br>
+                    Diposting Oleh: {{ $item->user->name }}&Tab;
+                    pada tanggal {{ date('d F Y', strtotime($item->created_at)) }}<br>
+                    Diilihat: {{ $item->jml_dibaca }} kali
+                    <center><img src="{{ url(Storage::url($item->gambar)) }}" alt=""
+                                    style="width:300px; height: 300px; margin-top: 30px; margin-bottom: 30px;"></center>
+                    <p style="text-align: justify;">{{$item->isi}}</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
     @endforeach
 
     @push('js')

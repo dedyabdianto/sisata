@@ -17,7 +17,7 @@ return new class extends Migration
             $table->foreignUlid('kategori_informasi_id')->constrained('kategori_informasis')->onDelete('cascade');
             $table->string('judul');
             $table->string('gambar');
-            $table->string('isi');
+            $table->text('isi');
             $table->integer('jml_dibaca')->default(0);
             $table->string('slug');
             $table->timestamps();

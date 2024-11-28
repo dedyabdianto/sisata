@@ -16,4 +16,8 @@ class Informasi extends Model
 
     public function kategori_informasi(){
         return $this->belongsTo(KategoriInformasi::class);}
+
+        public function user(){
+            return $this->belongsTo(User::class);
+        }
 }

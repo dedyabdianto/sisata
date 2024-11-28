@@ -12,4 +12,12 @@ class Wisata extends Model
 
     protected $guarded = [];
 
+    public function kategori_wisata(){
+        return $this->belongsTo(KategoriWisata::class);
+    }
+
+    public function user(){
+        return $this->belongsTo(User::class);
+    }
+
 }
