@@ -327,13 +327,19 @@
             <li class="nav-item">
                 <a class="nav-link {{ Request::is('profil*') ? 'active' : '' }}" href="profil">
                     <i class="bi bi-boxes"></i>
-                    <span>Profil</span>
+                    <span>Kelola Profil Dinas</span>
                 </a>
             </li>
             <li class="nav-item">
                 <a class="nav-link {{ Request::is('wisata*') ? 'active' : '' }}" href="/wisata">
                     <i class="bi bi-receipt-cutoff"></i>
                     <span>Kelola Wisata</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link {{ Request::is('galeri*') ? 'active' : '' }}" href="/galeri">
+                    <i class="bi bi-receipt-cutoff"></i>
+                    <span>Kelola Galeri</span>
                 </a>
             </li>
             <li class="nav-item">

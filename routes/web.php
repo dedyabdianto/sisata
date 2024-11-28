@@ -1,6 +1,7 @@
 <?php
 
 
+use App\Http\Controllers\GaleriController;
 use App\Http\Controllers\SettingController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
@@ -73,3 +74,8 @@ Route::get('/settings', [SettingController::class, 'index'])->name('settings');
 Route::post('/settings/store', [SettingController::class, 'store'])->name('settings.store');
 Route::put('/settings/update/{id}', [SettingController::class, 'update'])->name('settings.update');
 Route::delete('/settings/destroy/{id}', [SettingController::class, 'destroy'])->name('settings.destroy');
+
+Route::get('/galeri', [GaleriController::class, 'index'])->name('galeri');
+Route::post('/galeri/store', [GaleriController::class, 'store'])->name('galeri.store');
+Route::put('/galeri/update/{id}', [GaleriController::class, 'update'])->name('galeri.update');
+Route::delete('/galeri/destroy/{id}', [GaleriController::class, 'destroy'])->name('galeri.destroy');
