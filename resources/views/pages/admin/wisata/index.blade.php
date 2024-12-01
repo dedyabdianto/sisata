@@ -215,13 +215,14 @@
                                 <br>
                                 <input type="file" class="form-control" id="foto" name="foto[]" multiple>
                             </div>
+                            
                             <div class="col-12">
                                 <label for="kategori_wisata_id" class="form-label">Nama Operator</label>
                                 <select class="form-control" name="operator" required>
                                     <option value="" selected>--pilih--</option>
                                     @foreach ($operator as $i)
                                         <option value="{{ $i->id }}"
-                                            @if ($i->id == $item->user_id) selected @endif>{{ $i->username }}</option>
+                                            @if ($i->id == $item->user_id) selected @endif>{{ $i->name }}</option>
                                     @endforeach
                                 </select>
                             </div>

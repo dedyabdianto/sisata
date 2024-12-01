@@ -311,6 +311,16 @@
                         </a>
                     </li>
                     <li>
+                        <a href="/jabatan" @if (Route::currentRouteNamed('jabatan')) class="active" @endif>
+                            <i class="bi bi-circle"></i><span>Kategori Jabatan</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/pagol" @if (Route::currentRouteNamed('pagol')) class="active" @endif>
+                            <i class="bi bi-circle"></i><span>Kategori Pangkat Golongan</span>
+                        </a>
+                    </li>
+                    <li>
                         <a href="/user" @if (Route::currentRouteNamed('user')) class="active" @endif>
                             <i class="bi bi-circle"></i><span>Kelola User</span>
                         </a>
@@ -318,6 +328,12 @@
                 </ul>
             </li><!-- End Components Nav -->
 
+            <li class="nav-item" class="active">
+                <a class="nav-link {{ Request::is('pejabat') ? 'active' : '' }}" href="{{url('/pejabat')}}">
+                    <i class="bi bi-boxes"></i>
+                    <span>Kelola Data Pejabat</span>
+                </a>
+            </li>
             <li class="nav-item" class="active">
                 <a class="nav-link {{ Request::is('informasi') ? 'active' : '' }}" href="{{url('/informasi')}}">
                     <i class="bi bi-boxes"></i>
@@ -405,6 +421,7 @@
     {{-- <script src="/pariwisata/admin/assets2/vendor/simple-datatables/simple-datatables.js"></script> --}}
     {{-- <script src="https://cdn.datatables.net/2.1.8/js/dataTables.min.js"></script> --}}
     <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script> 
     <script src="https://cdn.datatables.net/2.1.8/js/dataTables.js"></script>
     <script src="/pariwisata/admin/assets2/vendor/tinymce/tinymce.min.js"></script>
     <script src="/pariwisata/admin/assets2/vendor/php-email-form/validate.js"></script>
@@ -432,7 +449,7 @@
                     text: '{{ session('error') }}',
                     icon: 'error',
                     confirmButtonText: 'OK',
-                    confirmButtonColor: "#008000"
+                    confirmButtonColor: "#911911"
                 });
             });
         </script>
@@ -446,7 +463,7 @@
                     html: '{!! implode('<br>', $errors->all()) !!}',
                     icon: 'error',
                     confirmButtonText: 'OK',
-                    confirmButtonColor: "#008000"
+                    confirmButtonColor: "#911911"
                 });
             });
         </script>
