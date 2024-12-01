@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\File;
+use App\Models\Profil;
 
 class HomeController extends Controller
 {
@@ -11,20 +13,30 @@ class HomeController extends Controller
         return view ('pages.menu.profil-instansi');
     }
 
-    public function profilpimpinan (){
-        return view ('pages.menu.profil-pimpinan');
+    public function profilpejabat (){
+        $profil=Profil::first();
+        $file = File::with(['kategori_file','user'])->get();
+        
+        return view ('pages.menu.profil-pejabat', with(["data"=>$profil, "file"=>$file]));
     }
 
     public function visimisi (){
-        return view ('pages.menu.visi-misi');
+        $profil=Profil::first();
+        return view ('pages.menu.visi-misi', with(["profil"=>$profil]));
     }
 
     public function standarpelayanan (){
         return view ('pages.menu.standar-pelayanan');
     }
 
-    public function sambutanrektor (){
-        return view ('pages.menu.sambutan-rektor');
+    public function sambutandinas (){
+        $profil=Profil::first();
+        return view ('pages.menu.sambutan-dinas', with(["profil"=>$profil]));
+    }
+
+    public function strukturorganisasi (){
+        $profil=Profil::first();
+        return view ('pages.menu.struktur-organisasi', with(["profil"=>$profil]));
     }
 
     public function empatberita (){
@@ -49,5 +61,9 @@ class HomeController extends Controller
 
     public function video (){
         return view ('pages.menu.video');
+    }
+
+    public function berita (){
+        return view ('pages.menu.berita');
     }
 }

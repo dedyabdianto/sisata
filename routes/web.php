@@ -1,14 +1,16 @@
 <?php
 
 
-use App\Http\Controllers\GaleriController;
-use App\Http\Controllers\SettingController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\FileController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\GaleriController;
 use App\Http\Controllers\ProfilController;
 use App\Http\Controllers\WisataController;
+use App\Http\Controllers\SettingController;
 use App\Http\Controllers\InformasiController;
+use App\Http\Controllers\KategoriFileController;
 use App\Http\Controllers\KategoriWisataController;
 use App\Http\Controllers\KategoriInformasiController;
 
@@ -34,11 +36,13 @@ Route::get('/logout', [AdminController::class, 'logout'])->name('logout');
 
 //* Menu Bar *//
 Route::get('/profilinstansi', [HomeController::class, 'profilinstansi'])->name('profilinstansi');
-Route::get('/profilpimpinan', [HomeController::class, 'profilpimpinan'])->name('profilpimpinan');
+Route::get('/profilpejabat', [HomeController::class, 'profilpejabat'])->name('profilpejabat');
 Route::get('/visimisi', [HomeController::class, 'visimisi'])->name('visimisi');
 Route::get('/standarpelayanan', [HomeController::class, 'standarpelayanan'])->name('standarpelayanan');
-Route::get('/sambutanrektor', [HomeController::class, 'sambutanrektor'])->name('sambutanrektor');
+Route::get('/sambutandinas', [HomeController::class, 'sambutandinas'])->name('sambutandinas');
+Route::get('/strukturorganisasi', [HomeController::class, 'strukturorganisasi'])->name('strukturorganisasi');
 Route::get('/empatberita', [HomeController::class, 'empatberita'])->name('empatberita');
+Route::get('/berita', [HomeController::class, 'berita'])->name('berita');
 Route::get('/informasiterbaru', [HomeController::class, 'informasiterbaru'])->name('informasiterbaru');
 Route::get('/pengumuman', [HomeController::class, 'pengumuman'])->name('pengumuman');
 Route::get('/polingstatistik', [HomeController::class, 'polingstatistik'])->name('polingstatistik');
@@ -59,6 +63,16 @@ Route::get('/kategori-wisata', [KategoriWisataController::class, 'index'])->name
 Route::post('/kategori-wisata/store', [KategoriWisataController::class, 'store'])->name('kategori-wisata.store');
 Route::put('/kategori-wisata/update/{id}', [KategoriWisataController::class, 'update'])->name('kategori-wisata.update');
 Route::delete('/kategori-wisata/destroy/{id}', [KategoriWisataController::class, 'destroy'])->name('kategori-wisata.destroy');
+
+Route::get('/kategori-file', [KategoriFileController::class, 'index'])->name('kategori-file');
+Route::post('/kategori-file/store', [KategoriFileController::class, 'store'])->name('kategori-file.store');
+Route::put('/kategori-file/update/{id}', [KategoriFileController::class, 'update'])->name('kategori-file.update');
+Route::delete('/kategori-file/destroy/{id}', [KategoriFileController::class, 'destroy'])->name('kategori-file.destroy');
+
+Route::get('/file', [FileController::class, 'index'])->name('file');
+Route::post('/file/store', [FileController::class, 'store'])->name('file.store');
+Route::put('/file/update/{id}', [FileController::class, 'update'])->name('file.update');
+Route::delete('/file/destroy/{id}', [FileController::class, 'destroy'])->name('file.destroy');
 
 Route::get('/profil', [ProfilController::class, 'index'])->name('profil');
 Route::post('/profil/store', [ProfilController::class, 'store'])->name('profil.store');

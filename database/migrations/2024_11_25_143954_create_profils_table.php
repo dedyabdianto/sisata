@@ -15,10 +15,10 @@ return new class extends Migration
             $table->ulid('id')->primary();
             $table->string('nama_kadis');
             $table->string('foto_kadis');
-            $table->string('visi');
-            $table->string('misi');
+            $table->text('visi');
+            $table->text('misi');
             $table->string('foto_struktur');
-            $table->string('sambutan');
+            $table->text('sambutan');
             $table->foreignUlid('user_id')->constrained('users')->onDelete('cascade'); // foreign key()
             $table->timestamps();
         });

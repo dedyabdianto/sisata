@@ -7,7 +7,7 @@
                     <h5 class="card-title"></h5>
                     <div class="dashboard-box table-opp-color-box">
                         {{-- <h4>{{ $title }}</h4> --}}
-                       
+
                         <div class="publish-action">
                             <button type="button" class="btn btn-success mb-3" data-bs-toggle="modal"
                                 data-bs-target="#modalTambahKategori">
@@ -29,10 +29,11 @@
                                         <tr>
                                             <td>{{ $loop->iteration }}</td>
                                             <td><span class="list-name"> {{ $item->nama_kategori }} </span></td>
-                                            <td> 
+                                            <td>
                                                 <button type="button" class="btn btn-warning" data-bs-toggle="modal"
                                                     data-bs-target="#modalEditKategori-{{ $item->id }}"><i
                                                         class="bi bi-pencil-square"></i></button>
+                                            
                                             </td>
                                         </tr>
                                     @endforeach
@@ -45,7 +46,7 @@
         </div>
     </div>
 
-   
+
 
     {{-- MODAL CREATE --}}
     <div class="modal fade" id="modalTambahKategori" tabindex="-1" aria-labelledby="modalTambahKategori"
@@ -58,11 +59,11 @@
                 </div>
                 <div class="modal-body">
                     <!--FORM TAMBAH Kategori-->
-                    <form class="row g-3" action="{{ route('kategori-informasi.store') }}" method="post">
+                    <form class="row g-3" action="{{ route('kategori-file.store') }}" method="post">
                         @csrf
                         <div class="col-12">
                             <label for="nama_kategori" class="form-label">Nama Kategori</label>
-                            <input type="text" class="form-control" id="nama_kategori" name="nama_kategori">
+                            <input type="text" class="form-control" id="nama_kategori" name="nama_kategori"  required>
                         </div>
                         <div class="text-center">
                             <button type="submit" class="btn btn-success">Simpan Data</button>
@@ -87,13 +88,13 @@
                     </div>
                     <div class="modal-body">
                         <!--FORM TAMBAH Kategori-->
-                        <form class="row g-3" action="{{ route('kategori-informasi.update', $item->id) }}" method="post">
+                        <form class="row g-3" action="{{ route('kategori-file.update', $item->id) }}" method="post">
                             @csrf
                             @method('PUT')
                             <div class="col-12">
                                 <label for="nama_kategori" class="form-label">Nama Kategori</label>
                                 <input type="text" class="form-control" id="nama_kategori" name="nama_kategori"
-                                    value="{{ $item->nama_kategori }}">
+                                    value="{{ $item->nama_kategori }}" required>
                             </div>
                             <div class="text-center">
                                 <button type="submit" class="btn btn-success">Update Data</button>
@@ -107,7 +108,7 @@
         </div>
     @endforeach
 
-       
+   
 
     @push('js')
         <script>

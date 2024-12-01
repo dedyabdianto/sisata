@@ -6,7 +6,7 @@
                <div class="inner-baner-container" style="background-image: url({{ asset ('pariwisata/assets/images/merauke.jpg') }})";>
                   <div class="container">
                      <div class="inner-banner-content">
-                        <h1 class="inner-title">PROFIL INSTANSI</h1>
+                        <h1 class="inner-title">STRUKTUR ORGANISASI</h1>
                         <div class="entry-meta">
                            <span class="byline">
                               <a href="#">Demoteam</a>
@@ -31,26 +31,9 @@
                         <div class="col-lg-8 primary right-sidebar">
                            <!-- single blog post html start -->
                            <figure class="feature-image">
-                              <img src="{{ asset ('pariwisata/assets/images/kepaladinas.png') }}" alt="">
+                              <img src="{{ url(Storage::url($profil->foto_struktur)) }}" alt="">
                            </figure>
 
-                           
-                           <article class="single-content-wrap">
-                              <h3>Cupiditate hic provident, repudiandae delectus debitis hac alias curabitur, sequi minim sapien scelerisque dolorem id.</h3>
-                              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis varius ligula non tellus euismod fermentum. Nulla quis enim ut est dapibus luctus quis quis enim. Ut bibendum ultricies nisl ut aliquam. Ut in arcu id nunc elementum ultricies eu eget lacus nam at neque lorem.</p>
-                              <blockquote>
-                                 <p>Sagittis perferendis? Leo nobis irure egestas excepturi ipsam nascetur elementum, montes. Torquent, soluta, ac nihil.</p>
-                              </blockquote>
-                           </article>
-                           <div class="meta-wrap">
-                              <div class="tag-links">
-                                 <a href="#">Destination</a>,
-                                 <a href="#">hiking</a>,
-                                 <a href="#">Travel Dairies</a>,
-                                 <a href="#">Travelling</a>,
-                                 <a href="#">Trekking</a>
-                              </div>
-                           </div>
                          
                            
       

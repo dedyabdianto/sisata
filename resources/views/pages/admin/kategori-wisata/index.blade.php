@@ -29,14 +29,11 @@
                                         <tr>
                                             <td>{{ $loop->iteration }}</td>
                                             <td><span class="list-name"> {{ $item->nama_kategori }} </span></td>
-                                            <td> <button type="button" class="btn btn-info"><i
-                                                        class="bi bi-eye"></i></button>
+                                            <td> 
                                                 <button type="button" class="btn btn-warning" data-bs-toggle="modal"
                                                     data-bs-target="#modalEditKategori-{{ $item->id }}"><i
                                                         class="bi bi-pencil-square"></i></button>
-                                                <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                                data-bs-target="#modalHapusKategori-{{ $item->id }}"><i
-                                                        class="bi bi-exclamation-octagon"></i></button>
+                                                
                                             </td>
                                         </tr>
                                     @endforeach
@@ -111,31 +108,7 @@
         </div>
     @endforeach
 
-    @foreach ($data as $item)
-    <div class="modal fade" id="modalHapusKategori-{{ $item->id }}" data-bs-backdrop="static" tabindex="-1"
-        aria-labelledby="modalHapusKategori" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Yakin ingin menghapus kategori "{{$item->nama_kategori}}" ini?</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <!--FORM TAMBAH Kategori-->
-                    <form class="row g-3" action="{{ route('kategori-wisata.destroy', $item->id) }}" method="post">    
-                        @csrf
-                        @method ('DELETE')                   
-                        <div class="text-center">
-                            <button type="submit" class="btn btn-danger">Hapus Data</button>
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        </div>
-                    </form>
-                    <!--END FORM TAMBAH Kategori-->
-                </div>
-            </div>
-        </div>
-    </div>
-@endforeach
+    
 
     @push('js')
         <script>

@@ -310,6 +310,13 @@
                             <i class="bi bi-circle"></i><span>Kategori Wisata</span>
                         </a>
                     </li>
+
+                    <li>
+                        <a href="/kategori-file" @if (Route::currentRouteNamed('kategori-file')) class="active" @endif>
+                            <i class="bi bi-circle"></i><span>Kategori File</span>
+                        </a>
+                    </li>
+
                     <li>
                         <a href="/user" @if (Route::currentRouteNamed('user')) class="active" @endif>
                             <i class="bi bi-circle"></i><span>Kelola User</span>
@@ -336,6 +343,14 @@
                     <span>Kelola Wisata</span>
                 </a>
             </li>
+
+            <li class="nav-item">
+                <a class="nav-link {{ Request::is('file*') ? 'active' : '' }}" href="/file">
+                    <i class="bi bi-receipt-cutoff"></i>
+                    <span>Kelola File</span>
+                </a>
+            </li>
+
             <li class="nav-item">
                 <a class="nav-link {{ Request::is('galeri*') ? 'active' : '' }}" href="/galeri">
                     <i class="bi bi-receipt-cutoff"></i>

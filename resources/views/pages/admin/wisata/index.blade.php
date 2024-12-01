@@ -126,7 +126,7 @@
                             <select class="form-control" name="operator" required>
                                 <option value="" selected>--pilih--</option>
                                 @foreach ($operator as $item)
-                                    <option value="{{ $item->id }}">{{ $item->username }}</option>
+                                    <option value="{{ $item->id }}">{{ $item->name }}</option>
                                 @endforeach
                             </select>
                         </div>
@@ -209,7 +209,7 @@
                                 <label for="foto" class="form-label">Foto</label><br>
                                 @foreach (json_decode($item->foto) as $i)
                                     <img src="{{ url(Storage::url($i)) }}" alt=""
-                                        style="width:300px; height: 300px; mb-3">
+                                    style="width:300px; height: 300px; mb-3">
                                 @endforeach
                                 <br>
                                 <br>
