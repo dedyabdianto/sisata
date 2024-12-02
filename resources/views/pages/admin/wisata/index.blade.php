@@ -32,27 +32,31 @@
                                 </thead>
                                 <tbody>
                                     @foreach ($data as $item)
-                                        <tr>
-                                            <td>{{ $loop->iteration }}</td>
-                                            <td><span class="list-name"> {{ $item->kategori_wisata->nama_kategori }} </span>
-                                            </td>
-                                            <td><span class="list-name"> {{ $item->nama_wisata }} </span></td>
-                                            <td><span class="list-name"> {{ $item->alamat }} </span></td>
-                                            <td><span class="list-name"> {{ $item->jam_mulai }} - {{ $item->jam_selesai }}
-                                                </span></td>
-                                            <td><span class="list-name"> {{ $item->status }} </span></td>
-                                            <td><span class="list-name"> {{ $item->user->name }} </span></td>
-                                            <td><span class="list-name"> {{ $item->rating }} </span></td>
-                                            <td> <button type="button" class="btn btn-info"><i
-                                                        class="bi bi-eye"></i></button>
-                                                <button type="button" class="btn btn-warning" data-bs-toggle="modal"
-                                                    data-bs-target="#modalEditWisata-{{ $item->id }}"><i
-                                                        class="bi bi-pencil-square"></i></button>
-                                                <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                                    data-bs-target="#modalHapusWisata-{{ $item->id }}"><i
-                                                        class="bi bi-trash"></i></button>
-                                            </td>
-                                        </tr>
+                                        @if (Auth::user()->id == $item->user_id || Auth::user()->role == 'admin')
+                                            <tr>
+                                                <td>@if(Auth::user()->role == 'admin'){{ $loop->iteration }} @endif</td>
+                                                <td><span class="list-name"> {{ $item->kategori_wisata->nama_kategori }}
+                                                    </span>
+                                                </td>
+                                                <td><span class="list-name"> {{ $item->nama_wisata }} </span></td>
+                                                <td><span class="list-name"> {{ $item->alamat }} </span></td>
+                                                <td><span class="list-name"> {{ $item->jam_mulai }} -
+                                                        {{ $item->jam_selesai }}
+                                                    </span></td>
+                                                <td><span class="list-name"> {{ $item->status }} </span></td>
+                                                <td><span class="list-name"> {{ $item->user->name }} </span></td>
+                                                <td><span class="list-name"> {{ $item->rating }} </span></td>
+                                                <td>
+                                                    <button type="button" class="btn btn-warning"><a href="{{ route('wisata.show', $item->id) }}"><i class="bi bi-pencil-square"></i></button>
+                                                    <button type="button" class="btn btn-warning" data-bs-toggle="modal"
+                                                        data-bs-target="#modalEditWisata-{{ $item->id }}"><i
+                                                            class="bi bi-pencil-square"></i></button>
+                                                    <button type="button" class="btn btn-danger" data-bs-toggle="modal"
+                                                        data-bs-target="#modalHapusWisata-{{ $item->id }}"><i
+                                                            class="bi bi-trash"></i></button>
+                                                </td>
+                                            </tr>
+                                        @endif
                                     @endforeach
                                 </tbody>
                             </table>
@@ -215,25 +219,29 @@
                                 <br>
                                 <input type="file" class="form-control" id="foto" name="foto[]" multiple>
                             </div>
-                            
-                            <div class="col-12">
-                                <label for="kategori_wisata_id" class="form-label">Nama Operator</label>
-                                <select class="form-control" name="operator" required>
-                                    <option value="" selected>--pilih--</option>
-                                    @foreach ($operator as $i)
-                                        <option value="{{ $i->id }}"
-                                            @if ($i->id == $item->user_id) selected @endif>{{ $i->name }}</option>
-                                    @endforeach
-                                </select>
-                            </div>
-                            <div class="col-12">
-                                <label for="status" class="form-label">Status Wisata</label>
-                                <select class="form-control" name="status" required>
-                                    <option value="" selected>--pilih--</option>
-                                    <option value="aktif" @if ($item->status == 'aktif') selected @endif>Aktif</option>
-                                    <option value="nonaktif" @if ($item->status == 'nonaktif') selected @endif>Nonaktif</option>
-                                </select>
-                            </div>
+                            @if (Auth::user()->role == 'admin')
+                                <div class="col-12">
+                                    <label for="operator" class="form-label">Nama Operator</label>
+                                    <select class="form-control" name="operator" required>
+                                        <option value="" selected>--pilih--</option>
+                                        @foreach ($operator as $i)
+                                            <option value="{{ $i->id }}"
+                                                @if ($i->id == $item->user_id) selected @endif>{{ $i->name }}
+                                            </option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                                <div class="col-12">
+                                    <label for="status" class="form-label">Status Wisata</label>
+                                    <select class="form-control" name="status" required>
+                                        <option value="" selected>--pilih--</option>
+                                        <option value="aktif" @if ($item->status == 'aktif') selected @endif>Aktif
+                                        </option>
+                                        <option value="nonaktif" @if ($item->status == 'nonaktif') selected @endif>Nonaktif
+                                        </option>
+                                    </select>
+                                </div>
+                            @endif
                             <div class="text-center">
                                 <button type="submit" class="btn btn-success">Simpan Data</button>
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>

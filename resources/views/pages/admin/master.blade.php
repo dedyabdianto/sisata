@@ -153,7 +153,7 @@
                 <div id="dashboard-Navigation" class="slick-nav"></div>
                 <div id="navigation" class="navigation-container">
                     <ul>
-                        <li class="active-menu"><a href="dashboard"><i class="far fa-chart-bar"></i> Dashboard</a></li>
+                        <li class="active-menu"><a href="/admin/dashboard"><i class="far fa-chart-bar"></i> Dashboard</a></li>
                         <li><a><i class="fas fa-user"></i>Masters</a>
                             <ul>
                                 <li>
