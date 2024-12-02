@@ -144,7 +144,7 @@
                      </nav>
                   </div>
                   <div class="header-btn">
-                     <a href="dashboard" class="button-primary">Dashboard</a>
+                     <a href="/admin/dashboard" class="button-primary">Dashboard</a>
                   </div>
                </div>
             </div>

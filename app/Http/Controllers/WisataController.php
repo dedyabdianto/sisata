@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\KunjunganHarian;
+use Carbon\Carbon;
 use App\Models\User;
 use App\Models\Wisata;
 use Illuminate\Support\Str;
@@ -86,12 +88,9 @@ class WisataController extends Controller
         $wisata->harga = $request->harga;
         $wisata->jam_mulai = $request->jam_mulai;
         $wisata->jam_selesai = $request->jam_selesai;
-        $wisata->link_maps = $request->link_maps;
-        $wisata->status = $request->status;
-        $wisata->user_id = $request->operator;                   /// GANTI DENGAN AUTH USER
+        $wisata->link_maps = $request->link_maps;               /// GANTI DENGAN AUTH USER
         $wisata->kategori_wisata_id = $request->kategori_wisata_id;
         $wisata->slug = Str::slug($request->nama_wisata);
-        $wisata->status = $request->status;
         
         $file_paths = [];
 
@@ -109,9 +108,9 @@ class WisataController extends Controller
 
 
         if ($wisata->save()) {
-            return redirect()->back()->with('success', 'Data Berhasil Ditambahkan');
+            return redirect()->back()->with('success', 'Data Berhasil Diubah');
         } else {
-            return redirect()->back()->with('error', 'Data Gagal Ditambahkan');
+            return redirect()->back()->with('error', 'Data Gagal Diubah');
         }
     }
 
@@ -124,5 +123,43 @@ class WisataController extends Controller
         return redirect()->back()->with([
             'success' => 'Data Berhasil Dihapus'
         ]);
+    }
+
+    public function show(String $id)
+    {
+        $wisata = Wisata::findOrFail($id);
+        $totalPengunjung = $wisata->getTotalPengunjung();
+
+        return view('pages.admin.wisata.show', with([
+            'wisata' => $wisata,
+            'totalPengunjung' => $totalPengunjung,
+            'title' => 'Detail Wisata'
+        ]));
+    }
+
+    public function add_visitor(Request $request, String $id)
+    {
+        $wisata = Wisata::findOrFail($id);
+        $visitDate = Carbon::today()->format('Y-m-d');  // Get today's date
+
+        // Check if we already have a record for today
+        $dailyVisit = KunjunganHarian::where('wisata_id', $wisata->id)
+            ->where('tanggal_kunjungan', $visitDate)
+            ->first();
+
+        if ($dailyVisit) {
+            // If a record exists, update the visitor count
+            $dailyVisit->jumlah_kunjungan += $request->visitor_count;  // Add the new visitors
+            $dailyVisit->save();
+        } else {
+            // Otherwise, create a new record for the day
+            KunjunganHarian::create([
+                'wisata_id' => $wisata->id,
+                'tanggal_kunjungan' => $visitDate,
+                'jumlah_kunjungan' => $request->visitor_count,  // Add the visitor count
+            ]);
+        }
+
+        return redirect()->route('wisata.show', $id)->with('success', 'Perhitungan pengunjung telah diperbaharui');
     }
 }

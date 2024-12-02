@@ -28,7 +28,7 @@
     <link href="/pariwisata/admin/assets2/vendor/remixicon/remixicon.css" rel="stylesheet">
     {{-- <link href="/pariwisata/admin/assets2/vendor/simple-datatables/style.css" rel="stylesheet"> --}}
     <link href="https://cdn.datatables.net/2.1.8/css/dataTables.dataTables.min.css" rel="stylesheet">
-    
+
 
     <!-- Template Main CSS File -->
     <link href="/pariwisata/admin/assets2/css/style.css" rel="stylesheet">
@@ -51,7 +51,8 @@
 
         <div class="d-flex align-items-center justify-content-between">
             <a href="/" class="logo d-flex align-items-center">
-                <img style="width: 40px; height: 80px; " src="{{ asset ('pariwisata/assets/images/logo-papsel2.png') }}" alt="">
+                <img style="width: 40px; height: 80px; " src="{{ asset('pariwisata/assets/images/logo-papsel2.png') }}"
+                    alt="">
                 <span class="d-none d-lg-block">Pariwisata Provinsi Papua Selatan</span>
             </a>
             <i class="bi bi-list toggle-sidebar-btn"></i>
@@ -73,163 +74,19 @@
                     </a>
                 </li><!-- End Search Icon-->
 
-                <li class="nav-item dropdown">
-
-                    <a class="nav-link nav-icon" href="#" data-bs-toggle="dropdown">
-                        <i class="bi bi-bell"></i>
-                        <span class="badge bg-primary badge-number">4</span>
-                    </a><!-- End Notification Icon -->
-
-                    <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow notifications">
-                        <li class="dropdown-header">
-                            You have 4 new notifications
-                            <a href="#"><span class="badge rounded-pill bg-primary p-2 ms-2">View all</span></a>
-                        </li>
-                        <li>
-                            <hr class="dropdown-divider">
-                        </li>
-
-                        <li class="notification-item">
-                            <i class="bi bi-exclamation-circle text-warning"></i>
-                            <div>
-                                <h4>Lorem Ipsum</h4>
-                                <p>Quae dolorem earum veritatis oditseno</p>
-                                <p>30 min. ago</p>
-                            </div>
-                        </li>
-
-                        <li>
-                            <hr class="dropdown-divider">
-                        </li>
-
-                        <li class="notification-item">
-                            <i class="bi bi-x-circle text-danger"></i>
-                            <div>
-                                <h4>Atque rerum nesciunt</h4>
-                                <p>Quae dolorem earum veritatis oditseno</p>
-                                <p>1 hr. ago</p>
-                            </div>
-                        </li>
-
-                        <li>
-                            <hr class="dropdown-divider">
-                        </li>
-
-                        <li class="notification-item">
-                            <i class="bi bi-check-circle text-success"></i>
-                            <div>
-                                <h4>Sit rerum fuga</h4>
-                                <p>Quae dolorem earum veritatis oditseno</p>
-                                <p>2 hrs. ago</p>
-                            </div>
-                        </li>
-
-                        <li>
-                            <hr class="dropdown-divider">
-                        </li>
-
-                        <li class="notification-item">
-                            <i class="bi bi-info-circle text-primary"></i>
-                            <div>
-                                <h4>Dicta reprehenderit</h4>
-                                <p>Quae dolorem earum veritatis oditseno</p>
-                                <p>4 hrs. ago</p>
-                            </div>
-                        </li>
-
-                        <li>
-                            <hr class="dropdown-divider">
-                        </li>
-                        <li class="dropdown-footer">
-                            <a href="#">Show all notifications</a>
-                        </li>
-
-                    </ul><!-- End Notification Dropdown Items -->
-
-                </li><!-- End Notification Nav -->
-
-                <li class="nav-item dropdown">
-
-                    <a class="nav-link nav-icon" href="#" data-bs-toggle="dropdown">
-                        <i class="bi bi-chat-left-text"></i>
-                        <span class="badge bg-success badge-number">3</span>
-                    </a><!-- End Messages Icon -->
-
-                    <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow messages">
-                        <li class="dropdown-header">
-                            You have 3 new messages
-                            <a href="#"><span class="badge rounded-pill bg-primary p-2 ms-2">View all</span></a>
-                        </li>
-                        <li>
-                            <hr class="dropdown-divider">
-                        </li>
-
-                        <li class="message-item">
-                            <a href="#">
-                                <img src="/pariwisata/admin/assets2/img/messages-1.jpg" alt=""
-                                    class="rounded-circle">
-                                <div>
-                                    <h4>Maria Hudson</h4>
-                                    <p>Velit asperiores et ducimus soluta repudiandae labore officia est ut...</p>
-                                    <p>4 hrs. ago</p>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <hr class="dropdown-divider">
-                        </li>
-
-                        <li class="message-item">
-                            <a href="#">
-                                <img src="/pariwisata/admin/assets2/img/messages-2.jpg" alt=""
-                                    class="rounded-circle">
-                                <div>
-                                    <h4>Anna Nelson</h4>
-                                    <p>Velit asperiores et ducimus soluta repudiandae labore officia est ut...</p>
-                                    <p>6 hrs. ago</p>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <hr class="dropdown-divider">
-                        </li>
-
-                        <li class="message-item">
-                            <a href="#">
-                                <img src="/pariwisata/admin/assets2/img/messages-3.jpg" alt=""
-                                    class="rounded-circle">
-                                <div>
-                                    <h4>David Muldon</h4>
-                                    <p>Velit asperiores et ducimus soluta repudiandae labore officia est ut...</p>
-                                    <p>8 hrs. ago</p>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <hr class="dropdown-divider">
-                        </li>
-
-                        <li class="dropdown-footer">
-                            <a href="#">Show all messages</a>
-                        </li>
-
-                    </ul><!-- End Messages Dropdown Items -->
-
-                </li><!-- End Messages Nav -->
-
                 <li class="nav-item dropdown pe-3">
 
                     <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#"
                         data-bs-toggle="dropdown">
-                        <img src="/pariwisata/admin/assets2/img/profile-img.jpg" alt="Profile"
+                        <img src="{{Storage::url(Auth::user()->foto)}}" alt="Profile"
                             class="rounded-circle">
-                        <span class="d-none d-md-block dropdown-toggle ps-2">K. Anderson</span>
+                        <span class="d-none d-md-block dropdown-toggle ps-2">{{Auth::user()->name}}</span>
                     </a><!-- End Profile Iamge Icon -->
 
                     <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
                         <li class="dropdown-header">
-                            <h6>Kevin Anderson</h6>
-                            <span>Web Designer</span>
+                            <h6>{{Auth::user()->name}}</h6>
+                            <span>{{Auth::user()->role}}</span>
                         </li>
                         <li>
                             <hr class="dropdown-divider">
@@ -256,22 +113,17 @@
                         </li>
 
                         <li>
-                            <a class="dropdown-item d-flex align-items-center" href="pages-faq.html">
-                                <i class="bi bi-question-circle"></i>
-                                <span>Need Help?</span>
-                            </a>
-                        </li>
-                        <li>
-                            <hr class="dropdown-divider">
-                        </li>
-
-                        <li>
-                            <a class="dropdown-item d-flex align-items-center" href="#">
+                            <a href="#" class="dropdown-item d-flex align-items-center"
+                                onclick="event.preventDefault(); document.getElementById('post-form').submit();">
                                 <i class="bi bi-box-arrow-right"></i>
-                                <span>Sign Out</span>
-                            </a>
-                        </li>
+                                <span>Sign Out</span></a>
 
+                            <form id="post-form" action="{{route('logout')}}" method="POST" style="display: none;">
+                                @csrf
+                                <!-- Tambahkan input hidden jika diperlukan -->
+                                <input type="hidden" name="key" value="value">
+                            </form>
+                        </li>
                     </ul><!-- End Profile Dropdown Items -->
                 </li><!-- End Profile Nav -->
 
@@ -287,7 +139,7 @@
 
             <li class="nav-item">
                 <a wire:navigate class="nav-link {{ Route::currentRouteNamed('dashboard') ? 'active' : '' }} collapsed"
-                    href="/dashboard">
+                    href="/admin/dashboard">
                     <i class="bi bi-grid"></i>
                     <span>Dashboard</span>
                 </a>
@@ -301,27 +153,27 @@
                 </a>
                 <ul id="components-nav" class="nav-content collapse show" data-bs-parent="#sidebar-nav">
                     <li>
-                        <a href="/kategori-informasi" @if (Route::currentRouteNamed('kategori-informasi')) class="active" @endif>
+                        <a href="/admin/kategori-informasi" @if (Route::currentRouteNamed('kategori-informasi')) class="active" @endif>
                             <i class="bi bi-circle"></i><span>Kategori Informasi</span>
                         </a>
                     </li>
                     <li>
-                        <a href="/kategori-wisata" @if (Route::currentRouteNamed('kategori-wisata')) class="active" @endif>
+                        <a href="/admin/kategori-wisata" @if (Route::currentRouteNamed('kategori-wisata')) class="active" @endif>
                             <i class="bi bi-circle"></i><span>Kategori Wisata</span>
                         </a>
                     </li>
                     <li>
-                        <a href="/jabatan" @if (Route::currentRouteNamed('jabatan')) class="active" @endif>
+                        <a href="/admin/jabatan" @if (Route::currentRouteNamed('jabatan')) class="active" @endif>
                             <i class="bi bi-circle"></i><span>Kategori Jabatan</span>
                         </a>
                     </li>
                     <li>
-                        <a href="/pagol" @if (Route::currentRouteNamed('pagol')) class="active" @endif>
+                        <a href="/admin/pagol" @if (Route::currentRouteNamed('pagol')) class="active" @endif>
                             <i class="bi bi-circle"></i><span>Kategori Pangkat Golongan</span>
                         </a>
                     </li>
                     <li>
-                        <a href="/user" @if (Route::currentRouteNamed('user')) class="active" @endif>
+                        <a href="/admin/user" @if (Route::currentRouteNamed('user')) class="active" @endif>
                             <i class="bi bi-circle"></i><span>Kelola User</span>
                         </a>
                     </li>
@@ -329,37 +181,37 @@
             </li><!-- End Components Nav -->
 
             <li class="nav-item" class="active">
-                <a class="nav-link {{ Request::is('pejabat') ? 'active' : '' }}" href="{{url('/pejabat')}}">
+                <a class="nav-link {{ Request::is('pejabat') ? 'active' : '' }}" href="{{ url('/admin/pejabat') }}">
                     <i class="bi bi-boxes"></i>
                     <span>Kelola Data Pejabat</span>
                 </a>
             </li>
             <li class="nav-item" class="active">
-                <a class="nav-link {{ Request::is('informasi') ? 'active' : '' }}" href="{{url('/informasi')}}">
+                <a class="nav-link {{ Request::is('informasi') ? 'active' : '' }}" href="{{ url('/admin/informasi') }}">
                     <i class="bi bi-boxes"></i>
                     <span>Kelola Informasi</span>
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link {{ Request::is('profil*') ? 'active' : '' }}" href="profil">
+                <a class="nav-link {{ Request::is('profil*') ? 'active' : '' }}" href="/admin/profil">
                     <i class="bi bi-boxes"></i>
                     <span>Kelola Profil Dinas</span>
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link {{ Request::is('wisata*') ? 'active' : '' }}" href="/wisata">
+                <a class="nav-link {{ Request::is('wisata*') ? 'active' : '' }}" href="/admin/wisata">
                     <i class="bi bi-receipt-cutoff"></i>
                     <span>Kelola Wisata</span>
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link {{ Request::is('galeri*') ? 'active' : '' }}" href="/galeri">
+                <a class="nav-link {{ Request::is('galeri*') ? 'active' : '' }}" href="/admin/galeri">
                     <i class="bi bi-receipt-cutoff"></i>
                     <span>Kelola Galeri</span>
                 </a>
             </li>
             <li class="nav-item">
-                <a wire:navigate class="nav-link {{ Request::is('wisata*') ? 'active' : '' }}" href="/settings">
+                <a wire:navigate class="nav-link {{ Request::is('wisata*') ? 'active' : '' }}" href="/admin/settings">
                     <i class="bi bi-gear"></i>
                     <span>Settings</span>
                 </a>
@@ -421,7 +273,7 @@
     {{-- <script src="/pariwisata/admin/assets2/vendor/simple-datatables/simple-datatables.js"></script> --}}
     {{-- <script src="https://cdn.datatables.net/2.1.8/js/dataTables.min.js"></script> --}}
     <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script> 
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="https://cdn.datatables.net/2.1.8/js/dataTables.js"></script>
     <script src="/pariwisata/admin/assets2/vendor/tinymce/tinymce.min.js"></script>
     <script src="/pariwisata/admin/assets2/vendor/php-email-form/validate.js"></script>
