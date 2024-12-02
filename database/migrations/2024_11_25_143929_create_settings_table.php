@@ -16,8 +16,8 @@ return new class extends Migration
             $table->foreignUlid('user_id')->constrained('users')->onDelete('cascade');
             $table->string('nama_web')->nullable();
             $table->string('tagline')->nullable();
-            $table->string('about')->nullable();
-            $table->string('deskripsi')->nullable();
+            $table->text('about')->nullable();
+            $table->text('deskripsi')->nullable();
             $table->string('email')->nullable();
             $table->string('alamat')->nullable();
             $table->string('tlp')->nullable();
@@ -26,6 +26,8 @@ return new class extends Migration
             $table->string('link_twt')->nullable();
             $table->string('link_ig')->nullable();
             $table->string('link_yt')->nullable();
+            $table->string('link_wa')->nullable();
+            $table->string('link_linkedin')->nullable();
             $table->timestamps();
         });
     }

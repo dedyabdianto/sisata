@@ -343,7 +343,7 @@
                      <div class="col-lg-5">
                         <div class="callback-img" style="background-image: url({{ asset ('pariwisata/assets/images/tamanwasur.jpg') }});">
                            <div class="video-button">
-                              <a id="video-container" data-video-id="IUN664s7N-c">
+                              <a id="video-container" data-video-id="https://youtube.com/@infokejadianmerauke?si=oavlExTR89p91RJJ">
                                  <i class="fas fa-play"></i>
                               </a>
                            </div>

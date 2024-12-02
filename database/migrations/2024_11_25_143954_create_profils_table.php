@@ -14,6 +14,8 @@ return new class extends Migration
         Schema::create('profils', function (Blueprint $table) {
             $table->ulid('id')->primary();
             $table->string('nama_kadis');
+            $table->string('nip');
+            $table->foreignUlid('pangkat_golongan_id')->constrained('pangkat_golongan')->onDelete('cascade');
             $table->string('foto_kadis');
             $table->text('visi');
             $table->text('misi');

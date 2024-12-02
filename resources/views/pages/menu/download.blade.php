@@ -6,7 +6,7 @@
       <div class="inner-baner-container" style="background-image: url({{ asset ('pariwisata/assets/images/merauke.jpg') }})" ;>
          <div class="container">
             <div class="inner-banner-content">
-               <h1 class="inner-title">PROFIL PEJABAT</h1>
+               <h1 class="inner-title">DOWNLOAD DATA</h1>
                <div class="entry-meta">
                   <span class="byline">
                      <a href="#">Demoteam</a>
@@ -33,30 +33,19 @@
             <table class="table table-striped">
                <thead>
                   <tr style="text-align:center;">
-                     <th scope="col" style="background-color: white;">Foto Pejabat</th>
-                     <th scope="col" style="background-color: white;">Jabatan</th>
-                     <th scope="col" style="background-color: white;">Nama Pejabat</th>
-                     <th scope="col" style="background-color: white;">Pangkat/Gol/Ruang</th>
-                     <th scope="col" style="background-color: white;">Pendidikan Terakhir</th>
-                     <th scope="col" style="background-color: white;">Riwayat Jabatan</th>
+                     <th scope="col" style="background-color: white;">Judul</th>
+                     <th scope="col" style="background-color: white;">Kategori File</th>
+                     <th scope="col" style="background-color: white;">File</th>
                   </tr>
                </thead>
                <tbody>
                   @foreach($data as $item)
                   <tr style="text-align:center;">
-                     <td><img style="width: 200px; height: auto;" src="{{ Storage::url ($item->foto) }}" alt=""></th>
-                     <td>{{$item->jabatan->nama_jabatan}}</td>
-                     <td>{{$item->nama_pejabat}}</td>
-                     <td>{{$item->pangkat_golongan->pangkat_golongan}}</td>
-                     <td>{{$item->pendidikan_terakhir}}</td>
-                     
+                     <td>{{$item->judul}}</td>
+                     <td>{{$item->kategori_file->nama_kategori}}</td>
                      <td>
-                        @foreach (json_decode ($item->riwayat_jabatan)  as $riwayat)
-                              <ul>
-                                 <li>{{$riwayat}}</li>
-                              </ul>
-                         @endforeach
-                     </td>
+                        <a href="{{url(Storage::url($item->file))}}" target="_blank"><button class="btn btn-success" type="button">PDF FILE DOWNLOAD</button></a>
+                    </td>
                      
                   </tr>
                   @endforeach

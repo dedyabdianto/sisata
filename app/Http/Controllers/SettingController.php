@@ -40,6 +40,8 @@ class SettingController extends Controller
         $settings->link_twt = $request->link_twt;
         $settings->link_ig = $request->link_ig;
         $settings->link_yt = $request->link_yt;
+        $settings->link_wa = $request->link_wa;
+        $settings->link_linkedin = $request->link_linkedin;
         $settings->user_id = 1;
 
         if ($request->hasFile('logo')) {
@@ -75,6 +77,8 @@ class SettingController extends Controller
         $settings->link_twt = $request->link_twt;
         $settings->link_ig = $request->link_ig;
         $settings->link_yt = $request->link_yt;
+        $settings->link_wa = $request->link_wa;
+        $settings->link_linkedin = $request->link_linkedin;
         $settings->user_id = 1;
 
         if ($request->hasFile('logo')) {

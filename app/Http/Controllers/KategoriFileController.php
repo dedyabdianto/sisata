@@ -27,7 +27,7 @@ class KategoriFileController extends Controller
     {
         // JANGAN LUPA VALIDATE
         $k_file = new KategoriFile();
-        $k_file->nama_kategori = $request->nama_kategori;
+        $k_file->nama_kategori = strtoupper($request->nama_kategori);
         $k_file->save();
 
         return redirect()->back()->with(
@@ -42,7 +42,7 @@ class KategoriFileController extends Controller
 
         $k_file = KategoriFile::findOrFail($id);
 
-        $k_file->nama_kategori = $request->nama_kategori;
+        $k_file->nama_kategori = strtoupper($request->nama_kategori);
         $k_file->save();
 
         return redirect()->back()->with([

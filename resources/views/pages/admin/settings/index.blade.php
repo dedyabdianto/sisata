@@ -73,6 +73,17 @@
                                     <input type="text" class="form-control" id="link_yt" name="link_yt"
                                         value="{{ $data->link_yt }}">
                                 </div>
+
+                                <div class="col-6">
+                                    <label for="link_wa" class="form-label">Link WhatsApp</label>
+                                    <input type="text" class="form-control" id="link_wa" name="link_wa"
+                                        value="{{ $data->link_wa }}">
+                                </div>
+                                <div class="col-6">
+                                    <label for="link_linkedin" class="form-label">Link Linkedin</label>
+                                    <input type="text" class="form-control" id="link_linkedin" name="link_linkedin"
+                                        value="{{ $data->link_linkedin }}">
+                                </div>
                                 <div class="text-center">
                                     <button type="submit" class="btn btn-success">Perbarui Data</button>
                                     {{-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> --}}
@@ -130,6 +141,15 @@
                                 <div class="col-6">
                                     <label for="link_yt" class="form-label">Link Youtube</label>
                                     <input type="text" class="form-control" id="link_yt" name="link_yt">
+                                </div>
+
+                                <div class="col-6">
+                                    <label for="link_wa" class="form-label">Link WhatsApp</label>
+                                    <input type="text" class="form-control" id="link_wa" name="link_wa">
+                                </div>
+                                <div class="col-6">
+                                    <label for="link_linkedin" class="form-label">Link Linkedin</label>
+                                    <input type="text" class="form-control" id="link_linkedin" name="link_linkedin">
                                 </div>
                                 <div class="text-center">
                                     <button type="submit" class="btn btn-success">Simpan Data</button>

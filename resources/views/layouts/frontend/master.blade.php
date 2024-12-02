@@ -46,13 +46,13 @@
                      <div class="header-contact-info">
                         <ul>
                            <li>
-                              <a href="#"><i class="fas fa-phone-alt"></i> +62-812345678910</a>
+                              <a><i class="fas fa-phone-alt"></i> {{$home->tlp}}</a>
                            </li>
                            <li>
-                              <a href="mailto:info@Travel.com"><i class="fas fa-envelope"></i> papuaselatan@org.com</a>
+                              <a><i class="fas fa-envelope"></i>{{$home->email}}</a>
                            </li>
                            <li>
-                              <i class="fas fa-map-marker-alt"></i>Papua Selatan
+                              <i class="fas fa-map-marker-alt"></i>{{$home->alamat}}
                            </li>
                         </ul>
                      </div>
@@ -60,10 +60,10 @@
                   <div class="col-lg-4 d-flex justify-content-lg-end justify-content-between">
                      <div class="header-social social-links">
                         <ul>
-                           <li><a href="#"><i class="fab fa-facebook-f" aria-hidden="true"></i></a></li>
-                           <li><a href="#"><i class="fab fa-twitter" aria-hidden="true"></i></a></li>
-                           <li><a href="#"><i class="fab fa-instagram" aria-hidden="true"></i></a></li>
-                           <li><a href="#"><i class="fab fa-linkedin" aria-hidden="true"></i></a></li>
+                           <li><a href="{{$home->link_fb}}"><i class="fab fa-facebook-f" aria-hidden="true"></i></a></li>
+                           <li><a href="{{$home->link_twt}}"><i class="fab fa-twitter" aria-hidden="true"></i></a></li>
+                           <li><a href="{{$home->link_ig}}"><i class="fab fa-instagram" aria-hidden="true"></i></a></li>
+                           <li><a href="{{$home->link_yt}}"><i class="fab fa-youtube" aria-hidden="true"></i></a></li>
                         </ul>
                      </div>
                      <div class="header-search-icon">
@@ -115,8 +115,8 @@
                               <li><a href="confirmation.html">Data Kunjungan Wisatawan</a></li>
                               <li><a href="tour-cart.html">Perjanjian Kerja Sama</a></li>
                               <li><a href="tour-cart.html">Agenda</a></li>
-                              <li><a href="tour-cart.html">Data Sakip</a></li>
-                              <li><a href="tour-cart.html">Laporan Realisasi Anggaran (LRA)</a></li>
+                              <li><a href="datasakip">Data Sakip</a></li>
+                              <li><a href="lra">Laporan Realisasi Anggaran (LRA)</a></li>
                            </ul>
                         </li>
                         <li class="menu-item-has-children">
@@ -124,22 +124,19 @@
                            <ul>
                               <li><a href="foto">Foto</a></li>
                               <li><a href="video">Video</a></li>
-                              <li><a href="product-detail.html">Download Data</a></li>
+                              <li><a href="download">Download Data</a></li>
                            </ul>
                         </li>
                         <li class="menu-item-has-children">
                            <a href="#">Kepatuhan Layanan Publik</a>
                            <ul>
-                              <li><a href="about.html">Visi Misi</a></li>
-                              <li><a href="service.html">Profil Penyelenggara</a></li>
-                              <li><a href="career.html">Profil Pelaksana</a></li>
-                              <li><a href="career-detail.html">Maklumat Pelayanan</a></li>
-                              <li><a href="tour-guide.html">Motto Pelayanan</a></li>
-                              <li><a href="testimonial-page.html">Standar Pelayanan</a></li>
-                              <li><a href="tour-guide.html">Hasil SKM</a></li>
+                              <li><a href="profilpenyelenggara">Profil Penyelenggara</a></li>
+                              <li><a href="maklumatpelayanan">Maklumat Pelayanan</a></li>
+                              <li><a href="mottopelayanan">Motto Pelayanan</a></li>
+                              <li><a href="hasilskm">Hasil SKM</a></li>
                               <li><a href="strukturorganisasi">Struktur Organisasi</a></li>
-                              <li><a href="tour-guide.html">Alur Permohonan Informasi</a></li>
-                              <li><a href="tour-guide.html">PPID</a></li>
+                              <li><a href="alurpermohonaninformasi">Alur Permohonan Informasi</a></li>
+                              <li><a href="ppid">PPID</a></li>
 
                            </ul>
                         </li>
@@ -154,9 +151,12 @@
          </div>
          <div class="mobile-menu-container"></div>
       </header>
+        
       <!-- Home slider html start -->
       @yield('content')
       <!--  contact details html end -->
+
+      
 
       <footer id="colophon" class="site-footer footer-primary">
          <div class="top-footer">
@@ -183,20 +183,39 @@
                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                            <ul>
                               <li>
-                                 <a href="#">
+                                 <a>
                                     <i class="fas fa-phone-alt"></i>
-                                    +01 (977) 2599 12
+                                    {{$home->tlp}}
                                  </a>
                               </li>
                               <li>
-                                 <a href="#">
+                                 <a>
                                     <i class="fas fa-envelope"></i>
-                                    company@domain.com
+                                    {{$home->email}}
                                  </a>
                               </li>
                               <li>
-                                 <i class="fas fa-map-marker-alt"></i>
-                                 3146 Koontz, California
+                                 <a href="{{$home->link_fb}}">
+                                    <i class="fab fa-facebook-f"></i>
+                                    Facebook
+                                 </a>
+                              </li>
+                              <li>
+                                 <a href="{{$home->link_ig}}">
+                                    <i class="fab fa-instagram"></i>
+                                    Instagram
+                                 </a>
+                              </li>
+                              <li>
+                                 <a href="{{$home->link_twt}}">
+                                    <i class="fab fa-twitter"></i>
+                                    Twitter
+                                 </a>
+                              </li>
+                              <li>
+                                 <a href="{{$home->link_yt}}">
+                                 <i class="fab fa-youtube"></i>
+                                 Youtube
                               </li>
                            </ul>
                         </div>
@@ -270,7 +289,7 @@
                   </div>
                   <div class="col-md-2 text-center">
                      <div class="footer-logo">
-                        <a href="#"><img style="height: 70px;width: 70px;" src="{{ asset ('pariwisata/assets/images/logo-papsel2.png') }}" alt=""></a>
+                        <a href="#"><img style="height: 70px;width: 70px;" src="{{ Storage::url ($home->logo) }}" alt=""></a>
                      </div>
                   </div>
                   <div class="col-md-5">

@@ -6,7 +6,7 @@
                <div class="inner-baner-container" style="background-image: url({{ asset ('pariwisata/assets/images/merauke.jpg') }})";>
                   <div class="container">
                      <div class="inner-banner-content">
-                        <h1 class="inner-title">PROFIL INSTANSI</h1>
+                        <h1 class="inner-title">PROFIL PENYELENGGARA</h1>
                         <div class="entry-meta">
                            <span class="byline">
                               <a href="#">Demoteam</a>
@@ -31,7 +31,7 @@
                         <div class="col-lg-8 primary right-sidebar">
                            <!-- single blog post html start -->
                            <figure class="feature-image">
-                              <img src="{{ asset ('pariwisata/assets/images/logo-papsel2.png') }}" alt="">
+                              <img src="{{ asset ('pariwisata/assets/images/kepaladinas.png') }}" alt="">
                            </figure>
 
                            

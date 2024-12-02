@@ -1,30 +1,36 @@
 <?php
 
 
+use App\Http\Controllers\GaleriController;
+use App\Http\Controllers\JabatanController;
+use App\Http\Controllers\PangkatGolonganController;
+use App\Http\Controllers\PejabatController;
+use App\Http\Controllers\SettingController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FileController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AdminController;
-use App\Http\Controllers\GaleriController;
 use App\Http\Controllers\ProfilController;
 use App\Http\Controllers\WisataController;
-use App\Http\Controllers\SettingController;
 use App\Http\Controllers\InformasiController;
 use App\Http\Controllers\KategoriFileController;
 use App\Http\Controllers\KategoriWisataController;
 use App\Http\Controllers\KategoriInformasiController;
 
 
-Route::get('/', function () {
-    return view('pages.home');
-});
 
+Route::get('/', [HomeController::class, 'home'])->name('home');
 
 //* Admin Dashboard *//
 Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('dashboard');
-Route::get('/user', [AdminController::class, 'user'])->name('user');
-Route::get('/useredit', [AdminController::class, 'useredit'])->name('useredit');
-Route::get('/newuser', [AdminController::class, 'newuser'])->name('newuser');
+
+Route::get('/user', [UserController::class, 'index'])->name('user');
+Route::post('/user/store', [UserController::class, 'store'])->name('user.store');
+Route::put('/user/update/{id}', [UserController::class, 'update'])->name('user.update');
+Route::delete('/user/destroy/{id}', [UserController::class, 'destroy'])->name('user.destroy');
+Route::post('/user/reset/{id}', [UserController::class, 'reset'])->name('user.reset');
+
 Route::get('/addpackage', [AdminController::class, 'addpackage'])->name('addpackage');
 Route::get('/packageactive', [AdminController::class, 'packageactive'])->name('packageactive');
 Route::get('/packagepending', [AdminController::class, 'packagepending'])->name('packagepending');
@@ -37,6 +43,7 @@ Route::get('/logout', [AdminController::class, 'logout'])->name('logout');
 //* Menu Bar *//
 Route::get('/profilinstansi', [HomeController::class, 'profilinstansi'])->name('profilinstansi');
 Route::get('/profilpejabat', [HomeController::class, 'profilpejabat'])->name('profilpejabat');
+Route::get('/profilpenyelenggara', [HomeController::class, 'profilpenyelenggara'])->name('profilpenyelenggara');
 Route::get('/visimisi', [HomeController::class, 'visimisi'])->name('visimisi');
 Route::get('/standarpelayanan', [HomeController::class, 'standarpelayanan'])->name('standarpelayanan');
 Route::get('/sambutandinas', [HomeController::class, 'sambutandinas'])->name('sambutandinas');
@@ -48,6 +55,15 @@ Route::get('/pengumuman', [HomeController::class, 'pengumuman'])->name('pengumum
 Route::get('/polingstatistik', [HomeController::class, 'polingstatistik'])->name('polingstatistik');
 Route::get('/foto', [HomeController::class, 'foto'])->name('foto');
 Route::get('/video', [HomeController::class, 'video'])->name('video');
+Route::get('/download', [HomeController::class, 'download'])->name('download');
+Route::get('/maklumatpelayanan', [HomeController::class, 'maklumatpelayanan'])->name('maklumatpelayanan');
+Route::get('/mottopelayanan', [HomeController::class, 'mottopelayanan'])->name('mottopelayanan');
+Route::get('/ppid', [HomeController::class, 'ppid'])->name('ppid');
+Route::get('/alurpermohonaninformasi', [HomeController::class, 'alurpermohonaninformasi'])->name('alurpermohonaninformasi');
+Route::get('/hasilskm', [HomeController::class, 'hasilskm'])->name('hasilskm');
+Route::get('/datasakip', [HomeController::class, 'datasakip'])->name('datasakip');
+Route::get('/lra', [HomeController::class, 'lra'])->name('lra');
+
 
 Route::get('/kategori-informasi', [KategoriInformasiController::class, 'index'])->name('kategori-informasi');
 Route::post('/kategori-informasi/store', [KategoriInformasiController::class, 'store'])->name('kategori-informasi.store');
@@ -93,3 +109,18 @@ Route::get('/galeri', [GaleriController::class, 'index'])->name('galeri');
 Route::post('/galeri/store', [GaleriController::class, 'store'])->name('galeri.store');
 Route::put('/galeri/update/{id}', [GaleriController::class, 'update'])->name('galeri.update');
 Route::delete('/galeri/destroy/{id}', [GaleriController::class, 'destroy'])->name('galeri.destroy');
+
+Route::get('/jabatan', [JabatanController::class, 'index'])->name('jabatan');
+Route::post('/jabatan/store', [JabatanController::class, 'store'])->name('jabatan.store');
+Route::put('/jabatan/update/{id}', [JabatanController::class, 'update'])->name('jabatan.update');
+Route::delete('/jabatan/destroy/{id}', [JabatanController::class, 'destroy'])->name('jabatan.destroy');
+
+Route::get('/pagol', [PangkatGolonganController::class, 'index'])->name('pagol');
+Route::post('/pagol/store', [PangkatGolonganController::class, 'store'])->name('pagol.store');
+Route::put('/pagol/update/{id}', [PangkatGolonganController::class, 'update'])->name('pagol.update');
+Route::delete('/pagol/destroy/{id}', [PangkatGolonganController::class, 'destroy'])->name('pagol.destroy');
+
+Route::get('/pejabat', [PejabatController::class, 'index'])->name('pejabat');
+Route::post('/pejabat/store', [PejabatController::class, 'store'])->name('pejabat.store');
+Route::put('/pejabat/update/{id}', [PejabatController::class, 'update'])->name('pejabat.update');
+Route::delete('/pejabat/destroy/{id}', [PejabatController::class, 'destroy'])->name('pejabat.destroy');

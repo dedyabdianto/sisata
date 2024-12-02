@@ -6,7 +6,7 @@
                <div class="inner-baner-container" style="background-image: url({{ asset ('pariwisata/assets/images/merauke.jpg') }})";>
                   <div class="container">
                      <div class="inner-banner-content">
-                        <h1 class="inner-title">PROFIL INSTANSI</h1>
+                        <h1 class="inner-title">MOTTO PELAYANAN</h1>
                         <div class="entry-meta">
                            <span class="byline">
                               <a href="#">Demoteam</a>
@@ -30,27 +30,26 @@
                      <div class="row">
                         <div class="col-lg-8 primary right-sidebar">
                            <!-- single blog post html start -->
-                           <figure class="feature-image">
-                              <img src="{{ asset ('pariwisata/assets/images/logo-papsel2.png') }}" alt="">
-                           </figure>
-
+                           <table width="10%">
+                              <tbody>
+                                 <tr>
+                                    <td>
+                                    <div>
+                                    <h3 align="center" class="CxSpFirst"><b><span lang="IN">MOTTO PELAYANAN DINAS PARIWISATA PROVINSI PAPUA SELATAN</span></b></h3> <br>
                            
-                           <article class="single-content-wrap">
-                              <h3>Cupiditate hic provident, repudiandae delectus debitis hac alias curabitur, sequi minim sapien scelerisque dolorem id.</h3>
-                              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis varius ligula non tellus euismod fermentum. Nulla quis enim ut est dapibus luctus quis quis enim. Ut bibendum ultricies nisl ut aliquam. Ut in arcu id nunc elementum ultricies eu eget lacus nam at neque lorem.</p>
-                              <blockquote>
-                                 <p>Sagittis perferendis? Leo nobis irure egestas excepturi ipsam nascetur elementum, montes. Torquent, soluta, ac nihil.</p>
-                              </blockquote>
-                           </article>
-                           <div class="meta-wrap">
-                              <div class="tag-links">
-                                 <a href="#">Destination</a>,
-                                 <a href="#">hiking</a>,
-                                 <a href="#">Travel Dairies</a>,
-                                 <a href="#">Travelling</a>,
-                                 <a href="#">Trekking</a>
-                              </div>
-                           </div>
+                                    <h4 align="center" class="CxSpMiddle"><b><span lang="IN">"KERJA KERAS & DISIPLIN"</span></b></h4>
+                           
+                                    <h4 align="center" class="CxSpMiddle"> <b><span lang="IN">MODAL MENCAPAI KESUKSESAN</span></b></h4>
+                           
+                                    
+                                    </div>
+                                    </td>
+                                 </tr>
+                              </tbody>
+                           </table>
+
+                     <br>
+
                          
                            
       
