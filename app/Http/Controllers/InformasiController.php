@@ -6,6 +6,7 @@ use App\Models\Informasi;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Models\KategoriInformasi;
+use Illuminate\Support\Facades\Auth;
 
 class InformasiController extends Controller
 {
@@ -36,7 +37,7 @@ class InformasiController extends Controller
         $informasi = new Informasi();
         $informasi->judul = $request->judul;
         $informasi->isi = $request->isi;
-        $informasi->user_id = 1;                            /// GANTI DENGAN USER AUTH
+        $informasi->user_id = Auth::user()->id;                            /// GANTI DENGAN USER AUTH
         $informasi->kategori_informasi_id = $request->kategori_informasi_id;
         $informasi->slug = Str::slug($request->judul);
         $informasi->jml_dibaca = 0;
@@ -76,7 +77,7 @@ class InformasiController extends Controller
         $informasi = Informasi::findOrFail($id);
         $informasi->judul = $request->judul;
         $informasi->isi = $request->isi;
-        $informasi->user_id = 1;                            /// GANTI DENGAN USER AUTH
+        $informasi->user_id = Auth::user()->id;                            /// GANTI DENGAN USER AUTH
         $informasi->kategori_informasi_id = $request->kategori_informasi_id;
         $informasi->slug = Str::slug($request->judul);
         

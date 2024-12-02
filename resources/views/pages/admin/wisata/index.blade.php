@@ -34,7 +34,11 @@
                                     @foreach ($data as $item)
                                         @if (Auth::user()->id == $item->user_id || Auth::user()->role == 'admin')
                                             <tr>
-                                                <td>@if(Auth::user()->role == 'admin'){{ $loop->iteration }} @endif</td>
+                                                <td>
+                                                    @if (Auth::user()->role == 'admin')
+                                                        {{ $loop->iteration }}
+                                                    @endif
+                                                </td>
                                                 <td><span class="list-name"> {{ $item->kategori_wisata->nama_kategori }}
                                                     </span>
                                                 </td>
@@ -47,7 +51,9 @@
                                                 <td><span class="list-name"> {{ $item->user->name }} </span></td>
                                                 <td><span class="list-name"> {{ $item->rating }} </span></td>
                                                 <td>
-                                                    <button type="button" class="btn btn-warning"><a href="{{ route('wisata.show', $item->id) }}"><i class="bi bi-pencil-square"></i></button>
+                                                    <button type="button" class="btn btn-info"><a
+                                                            href="{{ route('wisata.show', $item->id) }}"><i
+                                                                class="bi bi-person-plus-fill"></i></button>
                                                     <button type="button" class="btn btn-warning" data-bs-toggle="modal"
                                                         data-bs-target="#modalEditWisata-{{ $item->id }}"><i
                                                             class="bi bi-pencil-square"></i></button>

@@ -34,4 +34,6 @@ class Wisata extends Model
         // });
     }
 
+
+
 }

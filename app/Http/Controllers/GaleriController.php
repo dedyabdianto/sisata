@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Galeri;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class GaleriController extends Controller
 {
@@ -29,7 +30,7 @@ class GaleriController extends Controller
         $galeri->judul = $request->judul;
         $galeri->video = $request->video;
         $galeri->slug = Str::slug($request->judul);
-        $galeri->user_id = 1;
+        $galeri->user_id = Auth::user()->id;
 
         $file_paths = [];
 
@@ -57,7 +58,7 @@ class GaleriController extends Controller
         $galeri->judul = $request->judul;
         $galeri->video = $request->video;
         $galeri->slug = Str::slug($request->judul);
-        $galeri->user_id = 1;
+        $galeri->user_id = Auth::user()->id;
 
         $file_paths = [];
 

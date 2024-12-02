@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Profil;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ProfilController extends Controller
 {
@@ -12,7 +13,7 @@ class ProfilController extends Controller
     {
         $profil = Profil::first();
         // dd($k_informasi);
-        
+
         return view('pages.admin.profil.index', with([
             'data' => $profil,
             'title' => 'Profil',
@@ -32,7 +33,7 @@ class ProfilController extends Controller
         $profil->nama_kadis = $request->nama_kadis;
         $profil->visi = $request->visi;
         $profil->sambutan = $request->sambutan;
-        $profil->user_id = 1;
+        $profil->user_id = Auth::user()->id;
 
         $misi_array = [];
 
@@ -40,15 +41,15 @@ class ProfilController extends Controller
             $misi_array[] = $item;
         }
         $profil->misi = json_encode($misi_array);
-        
 
-        if($request->hasFile('foto_kadis')) {
+
+        if ($request->hasFile('foto_kadis')) {
             $filename = Str::random(32) . '.' . $request->file('foto_kadis')->getClientOriginalExtension();
             $file_path_kadis = $request->file('foto_kadis')->storeAs('public/foto', $filename);
         }
         $profil->foto_kadis = isset($file_path_kadis) ? $file_path_kadis : $profil->foto_kadis;
 
-        if($request->hasFile('foto_struktur')) {
+        if ($request->hasFile('foto_struktur')) {
             $filename = Str::random(32) . '.' . $request->file('foto_struktur')->getClientOriginalExtension();
             $file_path_struktur = $request->file('foto_struktur')->storeAs('public/foto', $filename);
         }
@@ -60,9 +61,9 @@ class ProfilController extends Controller
         ]);
     }
 
-    public function update(Request $request, String $id)
+    public function update(Request $request, string $id)
     {
-       
+
         $profil = Profil::findOrFail($id);
 
         $profil->nama_kadis = $request->nama_kadis;
@@ -75,15 +76,15 @@ class ProfilController extends Controller
             $misi_array[] = $item;
         }
         $profil->misi = json_encode($misi_array);
-        
 
-        if($request->hasFile('foto_kadis')) {
+
+        if ($request->hasFile('foto_kadis')) {
             $filename = Str::random(32) . '.' . $request->file('foto_kadis')->getClientOriginalExtension();
             $file_path_kadis = $request->file('foto_kadis')->storeAs('public/foto', $filename);
         }
         $profil->foto_kadis = isset($file_path_kadis) ? $file_path_kadis : $profil->foto_kadis;
 
-        if($request->hasFile('foto_struktur')) {
+        if ($request->hasFile('foto_struktur')) {
             $filename = Str::random(32) . '.' . $request->file('foto_struktur')->getClientOriginalExtension();
             $file_path_struktur = $request->file('foto_struktur')->storeAs('public/foto', $filename);
         }
@@ -95,12 +96,13 @@ class ProfilController extends Controller
         ]);
     }
 
-    public function destroy(String $id) {
+    public function destroy(string $id)
+    {
 
         $profil = Profil::findOrFail($id);
 
         $profil->delete();
-        
+
         return redirect()->back()->with([
             'success' => 'Berhasil menghapus data',
         ]);

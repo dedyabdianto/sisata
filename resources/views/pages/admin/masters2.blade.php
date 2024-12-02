@@ -35,6 +35,8 @@
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
+    <link rel="icon" href="{{ asset('pariwisata/assets/images/logo-papsel2.png') }}" type="image/x-icon">
+
     <!-- =======================================================
   * Template Name: NiceAdmin
   * Template URL: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/
@@ -51,8 +53,6 @@
 
         <div class="d-flex align-items-center justify-content-between">
             <a href="/" class="logo d-flex align-items-center">
-                <img style="width: 40px; height: 80px; " src="{{ asset('pariwisata/assets/images/logo-papsel2.png') }}"
-                    alt="">
                 <span class="d-none d-lg-block">Pariwisata Provinsi Papua Selatan</span>
             </a>
             <i class="bi bi-list toggle-sidebar-btn"></i>
@@ -186,8 +186,8 @@
                     <span>Kelola Data Pejabat</span>
                 </a>
             </li>
-            <li class="nav-item" class="active">
-                <a class="nav-link {{ Request::is('informasi') ? 'active' : '' }}" href="{{ url('/admin/informasi') }}">
+            <li class="nav-item  {{ Route::currentRouteName() == 'informasi' ? 'active' : '' }}">
+                <a class="nav-link" href="{{ url('/admin/informasi') }}">
                     <i class="bi bi-boxes"></i>
                     <span>Kelola Informasi</span>
                 </a>
@@ -198,8 +198,8 @@
                     <span>Kelola Profil Dinas</span>
                 </a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link {{ Request::is('wisata*') ? 'active' : '' }}" href="/admin/wisata">
+            <li class="nav-item {{ Request::is('wisata*') ? 'active' : '' }}">
+                <a class="nav-link " href="/admin/wisata">
                     <i class="bi bi-receipt-cutoff"></i>
                     <span>Kelola Wisata</span>
                 </a>
@@ -280,6 +280,9 @@
 
     <!-- Template Main JS File -->
     <script src="/pariwisata/admin/assets2/js/main.js"></script>
+
+    {{-- CHART --}}
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
     @if (session('success'))
         <script>

@@ -29,14 +29,13 @@
                                         <tr>
                                             <td>{{ $loop->iteration }}</td>
                                             <td><span class="list-name"> {{ $item->nama_jabatan }} </span></td>
-                                            <td> <button type="button" class="btn btn-info"><i
-                                                        class="bi bi-eye"></i></button>
+                                            <td> 
                                                 <button type="button" class="btn btn-warning" data-bs-toggle="modal"
                                                     data-bs-target="#modalEditJabatan-{{ $item->id }}"><i
                                                         class="bi bi-pencil-square"></i></button>
-                                                <button type="button" class="btn btn-danger" data-bs-toggle="modal"
+                                                {{-- <button type="button" class="btn btn-danger" data-bs-toggle="modal"
                                                 data-bs-target="#modalHapusJabatan-{{ $item->id }}"><i
-                                                        class="bi bi-exclamation-octagon"></i></button>
+                                                        class="bi bi-exclamation-octagon"></i></button> --}}
                                             </td>
                                         </tr>
                                     @endforeach

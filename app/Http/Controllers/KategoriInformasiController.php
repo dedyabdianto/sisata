@@ -28,7 +28,7 @@ class KategoriInformasiController extends Controller
         ]);
 
         $k_informasi = new KategoriInformasi();
-        $k_informasi->nama_kategori = $request->nama_kategori;
+        $k_informasi->nama_kategori = strtoupper($request->nama_kategori);
         
         if($k_informasi->save()) {
             return redirect()->back()->with(
@@ -56,7 +56,7 @@ class KategoriInformasiController extends Controller
 
         $k_informasi = KategoriInformasi::findOrFail($id);
 
-        $k_informasi->nama_kategori = $request->nama_kategori;
+        $k_informasi->nama_kategori = strtoupper($request->nama_kategori);
         $k_informasi->save();
 
         if($k_informasi->save()) {
