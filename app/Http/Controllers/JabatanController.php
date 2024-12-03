@@ -20,7 +20,7 @@ class JabatanController extends Controller
     {
         // JANGAN LUPA VALIDATE
         $jabatan = new Jabatan();
-        $jabatan->nama_jabatan = $request->nama_jabatan;
+        $jabatan->nama_jabatan = strtoupper($request->nama_jabatan);
         
         if ($jabatan->save()) {
             return redirect()->back()->with('success', 'Data Berhasil Ditambahkan');
@@ -34,7 +34,7 @@ class JabatanController extends Controller
 
         $jabatan = Jabatan::findOrFail($id);
 
-        $jabatan->nama_jabatan = $request->nama_jabatan;
+        $jabatan->nama_jabatan = strtoupper($request->nama_jabatan);
         if ($jabatan->save()) {
             return redirect()->back()->with('success', 'Data Berhasil Diubah');
         } else {

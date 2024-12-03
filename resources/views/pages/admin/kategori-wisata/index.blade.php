@@ -33,7 +33,9 @@
                                                 <button type="button" class="btn btn-warning" data-bs-toggle="modal"
                                                     data-bs-target="#modalEditKategori-{{ $item->id }}"><i
                                                         class="bi bi-pencil-square"></i></button>
-                                                
+                                                <button type="button" class="btn btn-danger" data-bs-toggle="modal"
+                                                data-bs-target="#modalHapusKategori-{{ $item->id }}"><i
+                                                        class="bi bi-exclamation-octagon"></i></button>
                                             </td>
                                         </tr>
                                     @endforeach

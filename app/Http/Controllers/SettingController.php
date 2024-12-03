@@ -41,8 +41,7 @@ class SettingController extends Controller
         $settings->link_twt = $request->link_twt;
         $settings->link_ig = $request->link_ig;
         $settings->link_yt = $request->link_yt;
-        $settings->link_wa = $request->link_wa;
-        $settings->user_id = Auth::user()->id;
+        $settings->user_id = 1;
 
         if ($request->hasFile('logo')) {
             $filename = Str::random(32) . '.' . $request->file('logo')->getClientOriginalExtension();
@@ -77,8 +76,7 @@ class SettingController extends Controller
         $settings->link_twt = $request->link_twt;
         $settings->link_ig = $request->link_ig;
         $settings->link_yt = $request->link_yt;
-        $settings->link_wa = $request->link_wa;
-        $settings->user_id = Auth::user()->id;
+        $settings->user_id = 1;
 
         if ($request->hasFile('logo')) {
             $filename = Str::random(32) . '.' . $request->file('logo')->getClientOriginalExtension();

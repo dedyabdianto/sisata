@@ -26,7 +26,7 @@ class KategoriWisataController extends Controller
     {
         // JANGAN LUPA VALIDATE
         $k_informasi = new KategoriWisata();
-        $k_informasi->nama_kategori = $request->nama_kategori;
+        $k_informasi->nama_kategori = strtoupper($request->nama_kategori);
         $k_informasi->save();
 
         return redirect()->back()->with(
@@ -41,7 +41,7 @@ class KategoriWisataController extends Controller
 
         $k_informasi = KategoriWisata::findOrFail($id);
 
-        $k_informasi->nama_kategori = $request->nama_kategori;
+        $k_informasi->nama_kategori = strtoupper($request->nama_kategori);
         $k_informasi->save();
 
         return redirect()->back()->with([

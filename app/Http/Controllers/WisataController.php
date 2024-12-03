@@ -127,7 +127,11 @@ class WisataController extends Controller
 
     public function show(String $id)
     {
-        $wisata = Wisata::findOrFail($id);
+        // $wisata = Wisata::findOrFail($id);
+        $wisata = Wisata::with(['kunjungan_harian' => function($query) {
+            $query->where('tanggal_kunjungan', '>=', Carbon::today()->subMonth())  // Get records from the last month
+                  ->orderBy('tanggal_kunjungan', 'desc');
+        }])->findOrFail($id);
         $totalPengunjung = $wisata->getTotalPengunjung();
 
         return view('pages.admin.wisata.show', with([
