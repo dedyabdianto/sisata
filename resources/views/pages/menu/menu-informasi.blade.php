@@ -7,7 +7,7 @@
                 style="background-image:url({{ asset('pariwisata/assets/images/merauke.jpg') }});">
                 <div class="container">
                     <div class="inner-banner-content">
-                        <h1 class="inner-title">PENGUMUMAN</h1>
+                        <h1 class="inner-title">BERITA</h1>
                     </div>
                 </div>
             </div>
@@ -23,7 +23,7 @@
                             <div class="grid row">
 
                                 @foreach ($data as $item)
-                                @if($item->kategori_informasi->nama_kategori == strtoupper('pengumuman'))
+                                @if($item->kategori_informasi->nama_kategori == strtoupper('berita'))
                                     <div class="grid-item col-md-6">
                                         <article class="post">
                                             <figure class="feature-image">
@@ -79,7 +79,7 @@
                             </div>
                             <!-- pagination html start-->
                         </div>
-                        @include('layouts.frontend.sidebar-berita')
+                        @include('layouts.frontend.sidebar-pengumuman')
                     </div>
                 </div>
             </div>

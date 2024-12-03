@@ -55,6 +55,7 @@ Route::get('/agenda', [HomeController::class, 'agenda'])->name('agenda');
 Route::get('/datakunjungan', [HomeController::class, 'datakunjungan'])->name('datakunjungan');
 Route::get('/empatberita', [HomeController::class, 'empatberita'])->name('empatberita');
 Route::get('/berita', [HomeController::class, 'berita'])->name('berita');
+Route::get('/menu-informasi', [HomeController::class, 'menu_informasi'])->name('menu-informasi');
 Route::get('/informasiterbaru/{id}', [HomeController::class, 'informasiterbaru'])->name('informasiterbaru');
 Route::get('/pengumuman', [HomeController::class, 'pengumuman'])->name('pengumuman');
 Route::get('/polingstatistik', [HomeController::class, 'polingstatistik'])->name('polingstatistik');

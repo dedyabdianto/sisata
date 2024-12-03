@@ -25,6 +25,12 @@
       <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,400&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap" rel="stylesheet">
       <!-- Custom CSS -->
       <link rel="stylesheet"  href="{{ asset ('pariwisata/style.css') }}">
+
+      
+    <link href="/pariwisata/admin/assets2/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+
+
+
       <title>Papua Selatan | Pariwisata</title>
    </head>
    <body class="home">
@@ -34,266 +40,14 @@
          </div>
       </div>
       <div id="page" class="full-page">
-         <header id="masthead" class="site-header header-primary">
-            <!-- header html start -->
-            <div class="top-header">
-               <div class="container">
-                  <div class="row">
-                     <div class="col-lg-8 d-none d-lg-block">
-                        <div class="header-contact-info">
-                           <ul>
-                              <li>
-                                 <a href="#"><i class="fas fa-phone-alt"></i>{{$home->tlp}}</a>
-                              </li>
-                              <li>
-                                 <a href="mailto:info@Travel.com"><i class="fas fa-envelope"></i>{{$home->email}}</a>
-                              </li>
-                              <li>
-                                 <i class="fas fa-map-marker-alt"></i>{{$home->alamat}}
-                              </li>
-                           </ul>
-                        </div>
-                     </div>
-                     <div class="col-lg-4 d-flex justify-content-lg-end justify-content-between">
-                        <div class="header-social social-links">
-                           <ul>
-                              <li><a href="{{$home->link_fb}}"><i class="fab fa-facebook-f" aria-hidden="true"></i></a></li>
-                              <li><a href="{{$home->link_twt}}"><i class="fab fa-twitter" aria-hidden="true"></i></a></li>
-                              <li><a href="{{$home->link_ig}}"><i class="fab fa-instagram" aria-hidden="true"></i></a></li>
-                              <li><a href="{{$home->link_wa}}"><i class="fab fa-whatsapp" aria-hidden="true"></i></a></li>
-                           </ul>
-                        </div>
-                        <div class="header-search-icon">
-                           <button class="search-icon">
-                              <i class="fas fa-search"></i>
-                           </button>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-            </div>
-            <div class="bottom-header">
-               <div class="container d-flex justify-content-between align-items-center">
-                  <div class="site-identity">
-                     <h1 class="site-title">
-                        <a href="/">
-                           <img style="height: 100px;width: 100px;margin-right: 50px;" class="white-logo" src="{{ asset ('pariwisata/assets/images/logo-papsel2.png') }}" alt="logo">
-                           <img style="height: 60px;width: 60px;margin-right: 50px;" class="black-logo" src="{{ asset ('pariwisata/assets/images/logo-papsel2.png') }}" alt="logo">
-                        </a>
-                     </h1>
-                  </div>
-                  <div class="main-navigation d-none d-lg-block">
-                     <nav id="navigation" class="navigation">
-                        <ul>
-                           <li class="menu-item-has-children">
-                              <a href="/">Beranda</a>
-                              <ul>
-                                 <li><a href="profilinstansi">Profil Instansi</a></li>
-                                 <li><a href="profilpimpinan">Profil Pimpinan</a></li>
-                                 <li><a href="visimisi">Visi Misi</a></li>
-                                 <li><a href="standarpelayanan">Standar Pelayanan</a></li>
-                                 <li><a href="sambutandinas">Sambutan Kepala Dinas</a></li>
-                                 <li><a href="empatberita">3 atau 4 Berita Terbaru</a></li>
-                                 <li><a href="informasiterbaru">Informasi Terbaru</a></li>
-                                 <li><a href="pengumuman">Pengumuman</a></li>
-                                 <li><a href="polingstatistik">Poling dan Statistik Pengunjung</a></li>
-                           
-                              </ul>
-                           </li>
-                           <li class="menu-item-has-children">
-                              <a href="#">Informasi</a>
-                              <ul>
-                                 <li><a href="berita">Berita</a></li>
-                                 <li><a href="events">Events</a></li>
-                                 <li><a href="desawisata">Desa Wisata</a></li>
-                                 <li><a href="dayatarikwisata">Daya Tarik Wisata</a></li>
-                                 <li><a href="industripariwisata">Industri Pariwisata</a></li>
-                                 <li><a href="datakunjungan">Data Kunjungan Wisatawan</a></li>
-                                 <li><a href="perjanjiankerja">Perjanjian Kerja Sama</a></li>
-                                 <li><a href="agenda">Agenda</a></li>
-                                 <li><a href="datasakip">Data Sakip</a></li>
-                                 <li><a href="lra">Laporan Realisasi Anggaran (LRA)</a></li>
-                              </ul>
-                           </li>
-                           <li class="menu-item-has-children">
-                              <a href="#">Media</a>
-                              <ul>
-                                 <li><a href="foto">Foto</a></li>
-                                 <li><a href="video">Video</a></li>
-                                 <li><a href="download">Download Data</a></li>
-                              </ul>
-                           </li>
-                           <li class="menu-item-has-children">
-                              <a href="#">Kepatuhan Layanan Publik</a>
-                              <ul>
-                                 <li><a href="profilpenyelenggara">Profil Penyelenggara</a></li>
-                                 <li><a href="maklumatpelayanan">Maklumat Pelayanan</a></li>
-                                 <li><a href="mottopelayanan">Motto Pelayanan</a></li>
-                                 <li><a href="hasilskm">Hasil SKM</a></li>
-                                 <li><a href="strukturorganisasi">Struktur Organisasi</a></li>
-                                 <li><a href="alurpermohonaninformasi">Alur Permohonan Informasi</a></li>
-                                 <li><a href="ppid">PPID</a></li>
-                              
-                              </ul>
-                           </li>
-                           
-                        </ul>
-                     </nav>
-                  </div>
-                  <div class="header-btn">
-                     <a href="/admin/dashboard" class="button-primary">Dashboard</a>
-                  </div>
-               </div>
-            </div>
-            <div class="mobile-menu-container"></div>
-         </header>
+         @include('layouts.frontend.header')
             <!-- Home slider html start -->
             @yield('content')
              
             <!--  contact details html end -->
-         
-         <footer id="colophon" class="site-footer footer-primary">
-            <div class="top-footer">
-               <div class="container">
-                  <div class="row">
-                     <div class="col-lg-3 col-md-6">
-                        <aside class="widget widget_text">
-                           <h3 class="widget-title">
-                              About Travel
-                           </h3>
-                           <div class="textwidget widget-text">
-                              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.
-                           </div>
-                           <div class="award-img">
-                              <a href="#"><img style="height: 85px;width: 85px;" src="{{ asset ('pariwisata/assets/images/wonderful.png') }}" alt=""></a>
-                              <a href="#"><img style="height: 85px;width: 85px;" src="{{ asset ('pariwisata/assets/images/kemenkraf.png') }}" alt=""></a>
-                           </div>
-                        </aside>
-                     </div>
-                     <div class="col-lg-3 col-md-6">
-                        <aside class="widget widget_text">
-                           <h3 class="widget-title">CONTACT INFORMATION</h3>
-                           <div class="textwidget widget-text">
-                              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                              <ul>
-                                 <li>
-                                    <a>
-                                       <i class="fas fa-phone-alt"></i>
-                                       {{$home->tlp}}
-                                    </a>
-                                 </li>
-                                 <li>
-                                    <a>
-                                       <i class="fas fa-envelope"></i>
-                                       {{$home->email}}
-                                    </a>
-                                 </li>
-                                 <li>
-                                    <a href="{{$home->link_wa}}">
-                                       <i class="fab fa-whatsapp"></i>
-                                    WhatsApp
-                                    </a>
-                                 </li>
-                                 <li>
-                                    <a href="{{$home->link_fb}}">
-                                       <i class="fab fa-facebook-f"></i>
-                                    Facebook
-                                    </a>
-                                 </li>
-                                 <li>
-                                    <a href="{{$home->link_ig}}">
-                                       <i class="fab fa-instagram"></i>
-                                    Instagram
-                                    </a>
-                                 </li>
-                                 <li>
-                                    <a href="{{$home->link_twt}}">
-                                       <i class="fab fa-twitter"></i>
-                                    Twitter
-                                    </a>
-                                 </li>
-                              </ul>
-                           </div>
-                        </aside>
-                     </div>
-                     <div class="col-lg-3 col-md-6">
-                        <aside class="widget widget_recent_post">
-                           <h3 class="widget-title">Latest Post</h3>
-                           <ul>
-                              <li>
-                                 <h5>
-                                    <a href="#">Life is a beautiful journey not a destination</a>
-                                 </h5>
-                                 <div class="entry-meta">
-                                    <span class="post-on">
-                                       <a href="#">August 17, 2021</a>
-                                    </span>
-                                    <span class="comments-link">
-                                       <a href="#">No Comments</a>
-                                    </span>
-                                 </div>
-                              </li>
-                              <li>
-                                 <h5>
-                                    <a href="#">Take only memories, leave only footprints</a>
-                                 </h5>
-                                 <div class="entry-meta">
-                                    <span class="post-on">
-                                       <a href="#">August 17, 2021</a>
-                                    </span>
-                                    <span class="comments-link">
-                                       <a href="#">No Comments</a>
-                                    </span>
-                                 </div>
-                              </li>
-                           </ul>
-                        </aside>
-                     </div>
-                     <div class="col-lg-3 col-md-6">
-                        <aside class="widget widget_newslatter">
-                           <h3 class="widget-title">SUBSCRIBE US</h3>
-                           <div class="widget-text">
-                              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                           </div>
-                           <form class="newslatter-form">
-                              <input type="email" name="s" placeholder="Your Email..">
-                              <input type="submit" name="s" value="SUBSCRIBE NOW">
-                           </form>
-                        </aside>
-                     </div>
-                  </div>
-               </div>
-            </div>
-            <div class="buttom-footer">
-               <div class="container">
-                  <div class="row align-items-center">
-                     <div class="col-md-5">
-                        <div class="footer-menu">
-                           <ul>
-                              <li>
-                                 <a href="#">Privacy Policy</a>
-                              </li>
-                              <li>
-                                 <a href="#">Term & Condition</a>
-                              </li>
-                              <li>
-                                 <a href="#">FAQ</a>
-                              </li>
-                           </ul>
-                        </div>
-                     </div>
-                     <div class="col-md-2 text-center">
-                        <div class="footer-logo">
-                           <a href="#"><img style="height: 70px;width: 70px;" src="{{ asset ('pariwisata/assets/images/logo-papsel2.png') }}" alt=""></a>
-                        </div>
-                     </div>
-                     <div class="col-md-5">
-                        <div class="copy-right text-right">Copyright © 2024 Pariwisata Papua Selatan. All rights reserveds</div>
-                     </div>
-                  </div>
-               </div>
-            </div>
-         </footer>
+
+            {{-- Footer --}}
+         @include('layouts.frontend.footer')
          <a id="backTotop" href="#" class="to-top-icon">
             <i class="fas fa-chevron-up"></i>
          </a>
@@ -327,6 +81,30 @@
    <script src="{{ asset ('pariwisata/assets/js/jquery.slicknav.js') }}"></script>
    <script src="{{ asset ('pariwisata/assets/js/custom.min.js') }}"></script>
 
+   <script src="{{ asset ('pariwisata/assets2/vendors/core/core.js') }}"></script>
+	<!-- endinject -->
+
+	<!-- Plugin js for this page -->
+  {{-- <script src="{{ asset ('pariwisata/assets2/vendors/chartjs/Chart.min.js') }}"></script>
+  <script src="{{ asset ('pariwisata/assets2/vendors/jquery.flot/jquery.flot.js') }}"></script>
+  <script src="{{ asset ('pariwisata/assets2/vendors/jquery.flot/jquery.flot.resize.js') }}"></script>
+  <script src="{{ asset ('pariwisata/assets2/vendors/bootstrap-datepicker/bootstrap-datepicker.min.js') }}"></script>
+  <script src="{{ asset ('pariwisata/assets2/vendors/apexcharts/apexcharts.min.js') }}"></script>
+	<!-- End plugin js for this page -->
+
+	<!-- inject:js -->
+	<script src="{{ asset ('pariwisata/assets2/vendors/feather-icons/feather.min.js') }}"></script>
+	<script src="{{ asset ('pariwisata/assets2/js/template.js') }}"></script>
+	<!-- endinject -->
+
+	<!-- Custom js for this page -->
+  <script src="{{ asset ('pariwisata/assets2/js/dashboard-light.js') }}"></script>
+  <script src="{{ asset ('pariwisata/assets2/js/datepicker.js') }}"></script> --}}
+
+  {{-- CHART --}}
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  @stack('js')
 
 </body>
 
