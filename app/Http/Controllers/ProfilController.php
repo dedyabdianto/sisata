@@ -6,6 +6,7 @@ use App\Models\Profil;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Models\PangkatGolongan;
+use Illuminate\Support\Facades\Auth;
 
 class ProfilController extends Controller
 {
@@ -37,7 +38,7 @@ class ProfilController extends Controller
         $profil->pangkat_golongan_id = $request->pangkat_golongan_id;
         $profil->visi = $request->visi;
         $profil->sambutan = $request->sambutan;
-        $profil->user_id = 1;
+        $profil->user_id = Auth::user()->id;
 
         $misi_array = [];
 

@@ -3,77 +3,57 @@
 <main id="content" class="site-main">
             <!-- Inner Banner html start-->
             <section class="inner-banner-wrap">
-               <div class="inner-baner-container" style="background-image:url({{ asset('pariwisata/assets/images/merauke.jpg') }});">
+               <div class="inner-baner-container" style="background-image: url({{ asset ('pariwisata/assets/images/merauke.jpg') }})";>
                   <div class="container">
                      <div class="inner-banner-content">
-                        <h1 class="inner-title">BERITA TERBARU</h1>
+                        <h1 class="inner-title">DESA WISATA</h1>
+                        <div class="entry-meta">
+                           <span class="byline">
+                              <a href="#">Demoteam</a>
+                           </span>
+                           <span class="posted-on">
+                              <a href="#">August 17, 2021</a>
+                           </span>
+                           <span class="comments-link">
+                              <a href="#">No Comments</a>
+                           </span>
+                        </div>
                      </div>
                   </div>
                </div>
                <div class="inner-shape"></div>
             </section>
             <!-- Inner Banner html end-->
-            <div class="archive-section blog-archive">
-               <div class="archive-inner">
+            <div class="single-post-section">
+               <div class="single-post-inner">
                   <div class="container">
                      <div class="row">
                         <div class="col-lg-8 primary right-sidebar">
-                           <!-- blog post item html start -->
-                           <div class="grid row">
-
-                              @foreach ($informasi as $item)
-                              <div class="grid-item col-md-6">
-                                 <article class="post">
-                                    <figure class="feature-image">
-                                       <a href="#">
-                                          <img src="{{ Storage::url ($item->gambar) }}" alt="">
-                                       </a>
-                                    </figure>
-                                    <div class="entry-content">
-                                       <h3>
-                                          <a href="#">{{$item->judul}}</a>
-                                       </h3>
-                                       <div class="entry-meta">
-                                          <span class="byline">
-                                             <a href="#">Demoteam</a>
-                                          </span>
-                                          <span class="posted-on">
-                                             <a href="#">August 17, 2021</a>
-                                          </span>
-                                          <span class="comments-link">
-                                             <a href="#">No Comments</a>
-                                          </span>
-                                       </div>
-                                       <p>{{$item->isi}}</p>
-                                       <a href="informasiterbaru" class="button-text">CONTINUE READING..</a>
+                           <!-- single blog post html start -->
+                           <table width="10%">
+                              <tbody>
+                                 <tr>
+                                    <td>
+                                    <div>
+                                    <h3 text-align="center" class="CxSpFirst"><b><span lang="IN">Desa wisata di Papua Selatan merupakan surga tersembunyi yang menyajikan keindahan alam yang autentik serta budaya lokal yang kaya. Di desa-desa ini, pengunjung dapat menikmati lanskap yang memukau, mulai dari hutan tropis, savana yang luas, hingga pantai-pantai yang masih alami. Setiap desa memiliki daya tariknya sendiri, seperti seni ukir khas Papua, kerajinan tangan tradisional, hingga ritual adat yang sakral. Pengalaman ini tidak hanya memberikan hiburan, tetapi juga mengedukasi wisatawan tentang kearifan lokal yang diwariskan secara turun-temurun.</span></b></h3> <br>
+                           
+                                    <h2 text-align="center" class="CxSpMiddle"><b><span lang="IN">Keramahan masyarakat setempat menjadi daya tarik utama, memberikan kesan hangat bagi setiap pengunjung yang datang. Wisatawan juga dapat mencicipi kuliner tradisional berbahan alami, seperti sagu, ikan bakar, dan hidangan khas lainnya yang diolah dengan cara tradisional. Dengan perpaduan alam yang memikat dan tradisi yang terjaga, desa wisata di Papua Selatan tidak hanya menjadi tempat pelarian dari hiruk-pikuk kota, tetapi juga destinasi yang memperkaya jiwa dan memperkenalkan kebudayaan Papua kepada dunia.</span></b></h2>
+                           
+                                    <h2 text-align="center" class="CxSpMiddle"> <b><span lang="IN">Di Kecamatan Petang terdapat beberapa desa wisata, yaitu :</span></b></h2>
+                           
+                                    
                                     </div>
-                                 </article>
-                              </div>
-                              @endforeach
+                                    </td>
+                                 </tr>
+                              </tbody>
+                           </table>
 
-                           </div>
+                     <br>
+
+                         
+                           
+      
                            <!-- blog post item html end -->
-                           <!-- pagination html start-->
-                           <div class="post-navigation-wrap">
-                              <nav>
-                                <ul class="pagination">
-                                  <li>
-                                    <a href="#">
-                                      <i class="fas fa-arrow-left"></i>
-                                    </a>
-                                  </li>
-                                  <li class="active"><a href="#">1</a></li>
-                                  <li><a href="#">..</a></li>
-                                  <li><a href="#">5</a></li>
-                                  <li>
-                                    <a href="#">
-                                      <i class="fas fa-arrow-right"></i>
-                                    </a>
-                                  </li>
-                                </ul>
-                              </nav>
-                           </div>
-                           <!-- pagination html start-->
                         </div>
                         <div class="col-lg-4 secondary">
                            <div class="sidebar">
@@ -88,7 +68,7 @@
                                        </figure>
                                        <div class="post-content">
                                           <h5>
-                                             <a href="informasiterbaru">{{$item->judul}}</a>
+                                             <a href="informasiterbaru">{{$item->isi}}</a>
                                           </h5>
                                           <div class="entry-meta">
                                              <span class="posted-on">
@@ -149,5 +129,4 @@
                </div>
             </div>
          </main>
-         
-@stop
+         @stop

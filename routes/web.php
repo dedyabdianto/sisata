@@ -44,27 +44,34 @@ Route::get('/comment', [AdminController::class, 'comment'])->name('comment');
 
 //* Menu Bar *//
 Route::get('/profilinstansi', [HomeController::class, 'profilinstansi'])->name('profilinstansi');
-Route::get('/profilpejabat', [HomeController::class, 'profilpejabat'])->name('profilpejabat');
+Route::get('/profilpimpinan', [HomeController::class, 'profilpimpinan'])->name('profilpimpinan  ');
 Route::get('/profilpenyelenggara', [HomeController::class, 'profilpenyelenggara'])->name('profilpenyelenggara');
 Route::get('/visimisi', [HomeController::class, 'visimisi'])->name('visimisi');
 Route::get('/standarpelayanan', [HomeController::class, 'standarpelayanan'])->name('standarpelayanan');
+Route::get('/perjanjiankerja', [HomeController::class, 'perjanjiankerja'])->name('perjanjiankerja');
 Route::get('/sambutandinas', [HomeController::class, 'sambutandinas'])->name('sambutandinas');
 Route::get('/strukturorganisasi', [HomeController::class, 'strukturorganisasi'])->name('strukturorganisasi');
+Route::get('/agenda', [HomeController::class, 'agenda'])->name('agenda');
+Route::get('/datakunjungan', [HomeController::class, 'datakunjungan'])->name('datakunjungan');
 Route::get('/empatberita', [HomeController::class, 'empatberita'])->name('empatberita');
 Route::get('/berita', [HomeController::class, 'berita'])->name('berita');
-Route::get('/informasiterbaru', [HomeController::class, 'informasiterbaru'])->name('informasiterbaru');
+Route::get('/informasiterbaru/{id}', [HomeController::class, 'informasiterbaru'])->name('informasiterbaru');
 Route::get('/pengumuman', [HomeController::class, 'pengumuman'])->name('pengumuman');
 Route::get('/polingstatistik', [HomeController::class, 'polingstatistik'])->name('polingstatistik');
 Route::get('/foto', [HomeController::class, 'foto'])->name('foto');
 Route::get('/video', [HomeController::class, 'video'])->name('video');
 Route::get('/download', [HomeController::class, 'download'])->name('download');
 Route::get('/maklumatpelayanan', [HomeController::class, 'maklumatpelayanan'])->name('maklumatpelayanan');
-Route::get('/mottopelayanan', [HomeController::class, 'mottopelayanan'])->name('mottopelayanan');
+Route::get('/desawisata', [HomeController::class, 'desawisata'])->name('desawisata');
+Route::get('/dayatarikwisata', [HomeController::class, 'dayatarikwisata'])->name('dayatarikwisata');
+Route::get('/industripariwisata', [HomeController::class, 'industripariwisata'])->name('industripariwisata');
+
 Route::get('/ppid', [HomeController::class, 'ppid'])->name('ppid');
 Route::get('/alurpermohonaninformasi', [HomeController::class, 'alurpermohonaninformasi'])->name('alurpermohonaninformasi');
 Route::get('/hasilskm', [HomeController::class, 'hasilskm'])->name('hasilskm');
 Route::get('/datasakip', [HomeController::class, 'datasakip'])->name('datasakip');
 Route::get('/lra', [HomeController::class, 'lra'])->name('lra');
+Route::get('/events', [HomeController::class, 'events'])->name('events');
 
 
 Route::prefix('admin')->group(function () {
@@ -77,20 +84,21 @@ Route::prefix('admin')->group(function () {
         Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
         Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
-Route::get('/kategori-file', [KategoriFileController::class, 'index'])->name('kategori-file');
-Route::post('/kategori-file/store', [KategoriFileController::class, 'store'])->name('kategori-file.store');
-Route::put('/kategori-file/update/{id}', [KategoriFileController::class, 'update'])->name('kategori-file.update');
-Route::delete('/kategori-file/destroy/{id}', [KategoriFileController::class, 'destroy'])->name('kategori-file.destroy');
+        Route::get('/kategori-file', [KategoriFileController::class, 'index'])->name('kategori-file');
+        Route::post('/kategori-file/store', [KategoriFileController::class, 'store'])->name('kategori-file.store');
+        Route::put('/kategori-file/update/{id}', [KategoriFileController::class, 'update'])->name('kategori-file.update');
+        Route::delete('/kategori-file/destroy/{id}', [KategoriFileController::class, 'destroy'])->name('kategori-file.destroy');
 
-Route::get('/file', [FileController::class, 'index'])->name('file');
-Route::post('/file/store', [FileController::class, 'store'])->name('file.store');
-Route::put('/file/update/{id}', [FileController::class, 'update'])->name('file.update');
-Route::delete('/file/destroy/{id}', [FileController::class, 'destroy'])->name('file.destroy');
 
-Route::get('/profil', [ProfilController::class, 'index'])->name('profil');
-Route::post('/profil/store', [ProfilController::class, 'store'])->name('profil.store');
-Route::put('/profil/update/{id}', [ProfilController::class, 'update'])->name('profil.update');
-Route::delete('/profil/destroy/{id}', [ProfilController::class, 'destroy'])->name('profil.destroy');
+        Route::get('/file', [FileController::class, 'index'])->name('file');
+        Route::post('/file/store', [FileController::class, 'store'])->name('file.store');
+        Route::put('/file/update/{id}', [FileController::class, 'update'])->name('file.update');
+        Route::delete('/file/destroy/{id}', [FileController::class, 'destroy'])->name('file.destroy');
+
+        Route::get('/profil', [ProfilController::class, 'index'])->name('profil');
+        Route::post('/profil/store', [ProfilController::class, 'store'])->name('profil.store');
+        Route::put('/profil/update/{id}', [ProfilController::class, 'update'])->name('profil.update');
+        Route::delete('/profil/destroy/{id}', [ProfilController::class, 'destroy'])->name('profil.destroy');
         Route::get('/user', [UserController::class, 'index'])->name('user');
         Route::post('/user/store', [UserController::class, 'store'])->name('user.store');
         Route::put('/user/update/{id}', [UserController::class, 'update'])->name('user.update');
@@ -150,7 +158,6 @@ Route::delete('/profil/destroy/{id}', [ProfilController::class, 'destroy'])->nam
 
     Route::middleware(['auth', 'pengguna'])->group(function () {
         Route::get('/pejabat', [PejabatController::class, 'index'])->name('pejabat');
-
     });
 
     Route::middleware(['auth', 'operator'])->group(function () {
@@ -158,9 +165,7 @@ Route::delete('/profil/destroy/{id}', [ProfilController::class, 'destroy'])->nam
         Route::put('/wisata/update/{id}', [WisataController::class, 'update'])->name('wisata.update');
         Route::get('/wisata/show/{id}', [WisataController::class, 'show'])->name('wisata.show');
         Route::post('/wisata/{id}/add-visitor', [WisataController::class, 'add_visitor'])->name('wisata.add_visitor');
-
     });
-
 });
 
 

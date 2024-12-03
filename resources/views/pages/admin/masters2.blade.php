@@ -164,7 +164,7 @@
                     </li>
 
                     <li>
-                        <a href="/kategori-file" @if (Route::currentRouteNamed('kategori-file')) class="active" @endif>
+                        <a href="/admin/kategori-file" @if (Route::currentRouteNamed('kategori-file')) class="active" @endif>
                             <i class="bi bi-circle"></i><span>Kategori File</span>
                         </a>
                     </li>
@@ -213,7 +213,7 @@
             </li>
 
             <li class="nav-item">
-                <a class="nav-link {{ Request::is('file*') ? 'active' : '' }}" href="/file">
+                <a class="nav-link {{ Request::is('file*') ? 'active' : '' }}" href="/admin/file">
                     <i class="bi bi-receipt-cutoff"></i>
                     <span>Kelola File</span>
                 </a>

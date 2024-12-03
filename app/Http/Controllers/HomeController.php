@@ -4,19 +4,23 @@ namespace App\Http\Controllers;
 
 use App\Models\File;
 use App\Models\Profil;
+use App\Models\Wisata;
 use App\Models\Pejabat;
 use App\Models\Setting;
 use App\Models\Informasi;
 use App\Models\KategoriFile;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
 
     public function home (){
+        $wisata=Wisata::with(['kategori_wisata', 'kunjungan_harian', 'user'])->get();
         $home=Setting::first();
-        return view ('pages.home', with(["home"=>$home]));
+        
+        return view ('pages.home', with(["home"=>$home, "wisata"=>$wisata]));
     }
 
     public function profilinstansi (){
@@ -31,13 +35,13 @@ class HomeController extends Controller
         return view ('pages.menu.profil-penyelenggara', with(["home"=>$home, "informasi"=>$informasi]));
     }
 
-    public function profilpejabat (){
+    public function profilpimpinan (){
         $home=Setting::first();
         $profil=Pejabat::with(['jabatan', 'pangkat_golongan'])->get();
         // $file = File::with(['kategori_file','user'])->get();
 
         
-        return view ('pages.menu.profil-pejabat', with(["data"=>$profil, "home"=>$home]));
+        return view ('pages.menu.profil-pimpinan', with(["data"=>$profil, "home"=>$home]));
     }
 
     public function visimisi (){
@@ -53,6 +57,14 @@ class HomeController extends Controller
         return view ('pages.menu.standar-pelayanan', with(["data"=>$file, "home"=>$home]));
     }
 
+    public function perjanjiankerja (){
+
+        $file=File::with(['kategori_file'])->get();
+        $home=Setting::first();
+        return view ('pages.menu.perjanjian-kerja', with(["data"=>$file, "home"=>$home]));
+    }
+
+
     public function sambutandinas (){
         $home=Setting::first();
         $profil=Profil::first();
@@ -62,17 +74,35 @@ class HomeController extends Controller
     public function strukturorganisasi (){
         $home=Setting::first();
         $profil=Profil::first();
-        return view ('pages.menu.struktur-organisasi', with(["profil"=>$profil, "home"=>$home]));
+        $informasi=Informasi::with(['kategori_informasi'])->get();
+        return view ('pages.menu.struktur-organisasi', with(["profil"=>$profil, "home"=>$home, "informasi"=>$informasi]));
     }
+
+    public function agenda (){
+        $home=Setting::first();
+        $profil=Profil::first();
+        $informasi=Informasi::with(['kategori_informasi'])->get();
+        return view ('pages.menu.agenda', with(["profil"=>$profil, "home"=>$home, "informasi"=>$informasi]));
+    }
+
+    public function datakunjungan (){
+        $home=Setting::first();
+        $profil=Profil::first();
+        $informasi=Informasi::with(['kategori_informasi'])->get();
+        return view ('pages.menu.data-kunjungan', with(["profil"=>$profil, "home"=>$home, "informasi"=>$informasi]));
+    }
+
 
     public function empatberita (){
         $home=Setting::first();
-        return view ('pages.menu.4-berita', with(["home"=>$home]));
+        $informasi=Informasi::with(['kategori_informasi'])->get();
+        return view ('pages.menu.4-berita', with(["home"=>$home, "informasi"=>$informasi]));
     }
 
-    public function informasiterbaru (){
+    public function informasiterbaru (String $id){
+        $informasi=Informasi::findOrFail($id);
         $home=Setting::first();
-        return view ('pages.menu.informasi-terbaru', with(["home"=>$home]));
+        return view ('pages.menu.informasi-terbaru', with(["informasi"=>$informasi, "home"=>$home]));
     }
     
     public function pengumuman (){
@@ -104,7 +134,8 @@ class HomeController extends Controller
 
     public function berita (){
         $home=Setting::first();
-        return view ('pages.menu.berita', with(["home"=>$home]));
+        $informasi=Informasi::with(['kategori_informasi'])->get();
+        return view ('pages.menu.berita', with(["home"=>$home, "informasi"=>$informasi]));
     }
 
     public function maklumatpelayanan (){
@@ -115,21 +146,49 @@ class HomeController extends Controller
         return view ('pages.menu.maklumat-pelayanan', with(["profil"=>$profil, "home"=>$home, "informasi"=>$informasi]));
     }
 
-    public function mottopelayanan (){
+    public function events (){
+
+        $file=File::with(['kategori_file'])->get();
         $home=Setting::first();
-        return view ('pages.menu.motto-pelayanan', with(["home"=>$home]));
+        return view ('pages.menu.events', with(["data"=>$file, "home"=>$home]));
+    }
+
+    public function mottopelayanan (){
+        $informasi=Informasi::with(['kategori_informasi'])->get();
+        $home=Setting::first();
+        return view ('pages.menu.motto-pelayanan', with(["home"=>$home, "informasi"=>$informasi]));
+    }
+
+    public function desawisata (){
+        $informasi=Informasi::with(['kategori_informasi'])->get();
+        $home=Setting::first();
+        return view ('pages.menu.motto-pelayanan', with(["home"=>$home, "informasi"=>$informasi]));
+    }
+
+    public function dayatarikwisata (){
+        $informasi=Informasi::with(['kategori_informasi'])->get();
+        $home=Setting::first();
+        return view ('pages.menu.daya-tarik-wisata', with(["home"=>$home, "informasi"=>$informasi]));
+    }
+
+    public function industripariwisata (){
+        $informasi=Informasi::with(['kategori_informasi'])->get();
+        $home=Setting::first();
+        return view ('pages.menu.industri-pariwisata', with(["home"=>$home, "informasi"=>$informasi]));
     }
 
     public function alurpermohonaninformasi (){
         $home=Setting::first();
         $profil=Profil::first();
-        return view ('pages.menu.alur-permohonan-informasi', with(["profil"=>$profil, "home"=>$home]));
+        $informasi=Informasi::with(['kategori_informasi'])->get();
+        return view ('pages.menu.alur-permohonan-informasi', with(["profil"=>$profil, "home"=>$home, "informasi"=>$informasi]));
     }
 
     public function hasilskm (){
         $home=Setting::first();
         $profil=Profil::first();
-        return view ('pages.menu.hasil-skm', with(["profil"=>$profil, "home"=>$home]));
+        $informasi=Informasi::with(['kategori_informasi'])->get();
+        return view ('pages.menu.hasil-skm', with(["profil"=>$profil, "home"=>$home, "informasi"=>$informasi]));
     }
 
     public function ppid (){

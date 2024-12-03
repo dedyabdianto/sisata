@@ -47,7 +47,7 @@
                                                 <td><span class="list-name"> {{ $item->user->name }} </span></td>
                                                 <td><span class="list-name"> {{ $item->rating }} </span></td>
                                                 <td>
-                                                    <button type="button" class="btn btn-warning"><a href="{{ route('wisata.show', $item->id) }}"><i class="bi bi-pencil-square"></i></button>
+                                                    <button type="button" class="btn btn-warning"><a href="{{ route('wisata.show', $item->id) }}"><i class="bi bi-pencil-square"></i></a></button>
                                                     <button type="button" class="btn btn-warning" data-bs-toggle="modal"
                                                         data-bs-target="#modalEditWisata-{{ $item->id }}"><i
                                                             class="bi bi-pencil-square"></i></button>

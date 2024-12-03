@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Setting;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class SettingController extends Controller
 {
@@ -41,8 +42,7 @@ class SettingController extends Controller
         $settings->link_ig = $request->link_ig;
         $settings->link_yt = $request->link_yt;
         $settings->link_wa = $request->link_wa;
-        $settings->link_linkedin = $request->link_linkedin;
-        $settings->user_id = 1;
+        $settings->user_id = Auth::user()->id;
 
         if ($request->hasFile('logo')) {
             $filename = Str::random(32) . '.' . $request->file('logo')->getClientOriginalExtension();
@@ -78,8 +78,7 @@ class SettingController extends Controller
         $settings->link_ig = $request->link_ig;
         $settings->link_yt = $request->link_yt;
         $settings->link_wa = $request->link_wa;
-        $settings->link_linkedin = $request->link_linkedin;
-        $settings->user_id = 1;
+        $settings->user_id = Auth::user()->id;
 
         if ($request->hasFile('logo')) {
             $filename = Str::random(32) . '.' . $request->file('logo')->getClientOriginalExtension();

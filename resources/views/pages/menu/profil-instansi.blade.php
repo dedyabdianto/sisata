@@ -31,7 +31,7 @@
                         <div class="col-lg-8 primary right-sidebar">
                            <!-- single blog post html start -->
                            <figure class="feature-image">
-                              <img src="{{ asset ('pariwisata/assets/images/logo-papsel2.png') }}" alt="">
+                              <img src="{{ url(Storage::url($home->logo)) }}" alt="">
                            </figure>
 
                            

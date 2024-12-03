@@ -7,6 +7,7 @@ use Illuminate\Support\Str;
 use App\Models\KategoriFile;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 
 class FileController extends Controller
 {
@@ -36,7 +37,7 @@ class FileController extends Controller
         $file->slug = Str::slug($request->judul);
         $file->tahun = $request->tahun;
         $file->kategori_file_id = $request->kategori_file_id;
-        $file->user_id = 1;
+        $file->user_id = Auth::user()->id;
 
         if($request->hasFile('file')) {
             $filename = Str::random(32) . '.' . $request->file('file')->getClientOriginalExtension();
@@ -60,7 +61,7 @@ class FileController extends Controller
         $file->slug = Str::slug($request->judul);
         $file->tahun = $request->tahun;
         $file->kategori_file_id = $request->kategori_file_id;
-        $file->user_id = 1;
+        $file->user_id = Auth::user()->id;
         if($request->hasFile('file')) {
             $filename = Str::random(32) . '.' . $request->file('file')->getClientOriginalExtension();
             $file_path = $request->file('file')->storeAs('public/file', $filename);

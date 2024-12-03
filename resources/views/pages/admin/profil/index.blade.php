@@ -92,6 +92,19 @@
                                     <input type="text" class="form-control" id="nama_kadis" name="nama_kadis">
                                 </div>
                                 <div class="col-12">
+                                    <label for="nip" class="form-label">NIP</label>
+                                    <input type="text" class="form-control" id="nip" name="nip">
+                                </div>
+                                <div class="col-12">
+                                    <label for="pangkat_golongan_id" class="form-label">Pangkat Golongan</label>
+                                    <select class="form-control" name="pangkat_golongan_id" required>
+                                        <option value="" selected>--pilih--</option>
+                                        @foreach($pagol as $item)
+                                        <option value="{{$item->id}}">{{$item->pangkat_golongan}}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                                <div class="col-12">
                                     <label for="foto_kadis" class="form-label">Foto Kadis</label>
                                     <input type="file" class="form-control" id="foto_kadis" name="foto_kadis">
                                 </div>
@@ -172,30 +185,39 @@
         {{-- SCRIPT EDIT MISI --}}
         <script>
             $(document).ready(function() {
-                // Iterate over each modal to set up event handlers
-
-                let fieldIndex{{ $data->id }} = {{ count(json_decode($data->misi)) }};
-
-                $('#add-field-{{ $data->id }}').click(function() {
-                    fieldIndex{{ $data->id }}++;
-                    const newField = `
-        <div class="col-12" id="field{{ $data->id }}-${fieldIndex{{ $data->id }}}">
-            <label for="misi{{ $data->id }}-${fieldIndex{{ $data->id }}}">Misi ${fieldIndex{{ $data->id }}}</label>
-            <input type="text" class="form-control" id="misi{{ $data->id }}-${fieldIndex{{ $data->id }}}" name="misi[]">
-            <button type="button" class="btn btn-danger mt-2 mb-4 remove-field" data-data-id="{{ $data->id }}" data-field-id="${fieldIndex{{ $data->id }}}"><i class="bi bi-trash"></i></button>
-        </div>
-    `;
-                    $('#dynamic-fields-edit-{{ $data->id }}').append(newField);
-                });
-
-                $('#dynamic-fields-edit-{{ $data->id }}').on('click', '.remove-field', function() {
-                    const fieldId = $(this).data('field-id');
-                    const dataId = $(this).data('data-id');
-                    $(`#field${dataId}-${fieldId}`).remove();
-                });
-
+                // Ambil ID atau gunakan nilai default
+                const dataId = {{ $data->id ?? 'null' }};
+                const isIdValid = dataId !== 'null';
+        
+                // Hanya jalankan logika jika ID valid
+                if (isIdValid) {
+                    let fieldIndex = {{ count(json_decode($data->misi ?? '[]')) }};
+                    
+                    $('#add-field-' + dataId).click(function() {
+                        fieldIndex++;
+                        const newField = `
+                            <div class="col-12" id="field${dataId}-${fieldIndex}">
+                                <label for="misi${dataId}-${fieldIndex}">Misi ${fieldIndex}</label>
+                                <input type="text" class="form-control" id="misi${dataId}-${fieldIndex}" name="misi[]">
+                                <button type="button" class="btn btn-danger mt-2 mb-4 remove-field" data-data-id="${dataId}" data-field-id="${fieldIndex}">
+                                    <i class="bi bi-trash"></i>
+                                </button>
+                            </div>
+                        `;
+                        $('#dynamic-fields-edit-' + dataId).append(newField);
+                    });
+        
+                    $('#dynamic-fields-edit-' + dataId).on('click', '.remove-field', function() {
+                        const fieldId = $(this).data('field-id');
+                        const currentDataId = $(this).data('data-id');
+                        $(`#field${currentDataId}-${fieldId}`).remove();
+                    });
+                } else {
+                    console.warn('ID tidak valid, fungsionalitas dinamis tidak diaktifkan.');
+                }
             });
         </script>
+        
         {{-- END EDIT MISI --}}
     @endpush
 @endsection

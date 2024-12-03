@@ -8,15 +8,7 @@
                      <div class="inner-banner-content">
                         <h1 class="inner-title">ALUR PERMOHONAN INFORMASI</h1>
                         <div class="entry-meta">
-                           <span class="byline">
-                              <a href="#">Demoteam</a>
-                           </span>
-                           <span class="posted-on">
-                              <a href="#">August 17, 2021</a>
-                           </span>
-                           <span class="comments-link">
-                              <a href="#">No Comments</a>
-                           </span>
+                          
                         </div>
                      </div>
                   </div>
@@ -45,135 +37,63 @@
                               <aside class="widget widget_latest_post widget-post-thumb">
                                  <h3 class="widget-title">Recent Post</h3>
                                  <ul>
+                                    @foreach ($informasi as $item)
                                     <li>
                                        <figure class="post-thumb">
-                                          <a href="#"><img src="{{ asset ('pariwisata/assets/images/img17.jpg') }}" alt=""></a>
+                                          <a href="{{route('informasiterbaru', $item->id)}}"><img src="{{ url(Storage::url($item->gambar)) }}" alt=""></a>
                                        </figure>
                                        <div class="post-content">
                                           <h5>
-                                             <a href="#">Someday I’m going to be free and travel</a>
+                                             <a href="{{route('informasiterbaru', $item->id)}}">{{$item->judul}}</a>
                                           </h5>
                                           <div class="entry-meta">
                                              <span class="posted-on">
                                                 <a href="#">August 17, 2021</a>
                                              </span>
-                                             <span class="comments-link">
-                                                <a href="#">No Comments</a>
-                                             </span>
+                                             
                                           </div>
                                        </div>
                                     </li>
-                                    <li>
-                                       <figure class="post-thumb">
-                                          <a href="#"><img src="{{ asset ('pariwisata/assets/images/img18.jpg') }}" alt=""></a>
-                                       </figure>
-                                       <div class="post-content">
-                                          <h5>
-                                             <a href="#">Enjoying the beauty of the great nature</a>
-                                          </h5>
-                                          <div class="entry-meta">
-                                             <span class="posted-on">
-                                                <a href="#">August 17, 2021</a>
-                                             </span>
-                                             <span class="comments-link">
-                                                <a href="#">No Comments</a>
-                                             </span>
-                                          </div>
-                                       </div>
-                                    </li>
-                                    <li>
-                                       <figure class="post-thumb">
-                                          <a href="#"><img src="{{ asset ('pariwisata/assets/images/img19.jpg') }}" alt=""></a>
-                                       </figure>
-                                       <div class="post-content">
-                                          <h5>
-                                             <a href="#">Let’s start adventure with best tripo guides</a>
-                                          </h5>
-                                          <div class="entry-meta">
-                                             <span class="posted-on">
-                                                <a href="#">August 17, 2021</a>
-                                             </span>
-                                             <span class="comments-link">
-                                                <a href="#">No Comments</a>
-                                             </span>
-                                          </div>
-                                       </div>
-                                    </li>
-                                    <li>
-                                       <figure class="post-thumb">
-                                          <a href="#"><img src="{{ asset ('pariwisata/assets/images/img34.jpg') }}" alt=""></a>
-                                       </figure>
-                                       <div class="post-content">
-                                          <h5>
-                                             <a href="#">Journeys are best measured in new friends</a>
-                                          </h5>
-                                          <div class="entry-meta">
-                                             <span class="posted-on">
-                                                <a href="#">August 17, 2021</a>
-                                             </span>
-                                             <span class="comments-link">
-                                                <a href="#">No Comments</a>
-                                             </span>
-                                          </div>
-                                       </div>
-                                    </li>
-                                    <li>
-                                       <figure class="post-thumb">
-                                          <a href="#"><img src="{{ asset ('pariwisata/assets/images/img35.jpg') }}" alt=""></a>
-                                       </figure>
-                                       <div class="post-content">
-                                          <h5>
-                                             <a href="#">Take only memories, leave only footprints</a>
-                                          </h5>
-                                          <div class="entry-meta">
-                                             <span class="posted-on">
-                                                <a href="#">August 17, 2021</a>
-                                             </span>
-                                             <span class="comments-link">
-                                                <a href="#">No Comments</a>
-                                             </span>
-                                          </div>
-                                       </div>
-                                    </li>
+                                    @endforeach
                                  </ul>
                               </aside>
                               <aside class="widget widget_social">
                                  <h3 class="widget-title">Social share</h3>
                                  <div class="social-icon-wrap">
                                     <div class="social-icon social-facebook">
-                                       <a href="#">
+                                       <a href="{{$home->link_fb}}">
                                           <i class="fab fa-facebook-f"></i>
                                           <span>Facebook</span>
                                        </a>
                                     </div>
                                     <div class="social-icon social-pinterest">
-                                       <a href="#">
-                                          <i class="fab fa-pinterest"></i>
-                                          <span>Pinterest</span>
+                                       <a href="{{$home->link_yt}}">
+                                          <i class="fab fa-youtube"></i>
+                                          <span>Youtube</span>
                                        </a>
                                     </div>
                                     <div class="social-icon social-whatsapp">
-                                       <a href="#">
+                                       <a href="{{$home->link_wa}}">
                                           <i class="fab fa-whatsapp"></i>
                                           <span>WhatsApp</span>
                                        </a>
                                     </div>
                                     <div class="social-icon social-linkedin">
-                                       <a href="#">
+                                       <a href="{{$home->link_linkedin}}">
                                           <i class="fab fa-linkedin"></i>
                                           <span>Linkedin</span>
                                        </a>
                                     </div>
                                     <div class="social-icon social-twitter">
-                                       <a href="#">
+                                       <a href="{{$home->link_twt}}">
                                           <i class="fab fa-twitter"></i>
                                           <span>Twitter</span>
                                        </a>
                                     </div>
                                     <div class="social-icon social-google">
-                                       <a href="#">
-                                          <i class="fab fa-google-plus-g"></i>
-                                          <span>Google</span>
+                                       <a href="{{$home->link_ig}}">
+                                          <i class="fab fa-instagram"></i>
+                                          <span>Instagram</span>
                                        </a>
                                     </div>
                                  </div>
